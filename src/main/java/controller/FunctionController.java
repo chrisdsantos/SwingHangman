@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package swingproject1.src.main.java.controller;
+package main.java.controller;
 
-import swingproject1.src.main.java.model.FunctionModel;
-import swingproject1.src.main.java.view.FunctionPanel;
+import main.java.model.FunctionModel;
+import main.java.view.FunctionPanel;
+
 
 /**
  *

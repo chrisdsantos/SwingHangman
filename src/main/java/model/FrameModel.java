@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package swingproject1.src.main.java.model;
+package main.java.model;
 
 import javax.swing.JComponent;
 

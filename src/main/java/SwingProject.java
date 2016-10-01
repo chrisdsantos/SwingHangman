@@ -3,13 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package swingproject1.src.main.java;
+package main.java;
 
 import java.awt.Color;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
-import swingproject1.src.main.java.controller.*;
-import swingproject1.src.main.java.model.*;
-import swingproject1.src.main.java.view.*;
+import main.java.controller.FunctionController;
+import main.java.controller.MainFrameController;
+import main.java.controller.SplashController;
+import main.java.model.FunctionModel;
+import main.java.model.MainFrameModel;
+import main.java.model.SplashModel;
+import main.java.view.FunctionPanel;
+import main.java.view.MainFrame;
+import main.java.view.SplashPanel;
 
 /**
  *

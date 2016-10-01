@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package swingproject1.src.main.java.controller;
+package main.java.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JPanel;
 import javax.swing.Timer;
 import javax.swing.event.AncestorEvent;
 import javax.swing.event.AncestorListener;
-import swingproject1.src.main.java.SwingProject;
-import swingproject1.src.main.java.model.SplashModel;
-import swingproject1.src.main.java.view.SplashPanel;
+import main.java.SwingProject;
+import main.java.model.SplashModel;
+import main.java.view.SplashPanel;
+
 
 /**
  *

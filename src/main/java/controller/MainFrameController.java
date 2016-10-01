@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package swingproject1.src.main.java.controller;
+package main.java.controller;
 
 import java.awt.CardLayout;
 import javax.swing.JPanel;
-import swingproject1.src.main.java.model.MainFrameModel;
-import swingproject1.src.main.java.view.MainFrame;
+import main.java.model.MainFrameModel;
+import main.java.view.MainFrame;
+
 
 /**
  *
