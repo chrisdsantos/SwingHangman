@@ -7,15 +7,9 @@ package main.java;
 
 import java.awt.Color;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
-import main.java.controller.FunctionController;
-import main.java.controller.MainFrameController;
-import main.java.controller.SplashController;
-import main.java.model.FunctionModel;
-import main.java.model.MainFrameModel;
-import main.java.model.SplashModel;
-import main.java.view.FunctionPanel;
-import main.java.view.MainFrame;
-import main.java.view.SplashPanel;
+import main.java.controller.*;
+import main.java.model.*;
+import main.java.view.*;
 
 /**
  *
@@ -23,6 +17,12 @@ import main.java.view.SplashPanel;
  */
 public class SwingProject {
     public static final String PROJECT_NAME = "CS 245 - Swing Project v1";
+    public static final String CONTRIBUTORS[] = {
+        "Omar Rodriguez, #",
+        "Nahid Enayatzadeh , #",
+        "Marc Deaso, #",
+        "Christopher Santos, #"};
+    
     public static final String SPLASH_KEY = "splashscreen";
     public static final String FUNCTION_KEY = "functionscreen";
     public static final String HIGH_SCORE_KEY = "highscorescreen";
@@ -34,6 +34,7 @@ public class SwingProject {
     
     private SplashController splashController;
     private FunctionController functionController;
+    private CreditsController creditsController;
     
     private SwingProject(){
     }
@@ -55,14 +56,22 @@ public class SwingProject {
                 new FunctionModel(Color.BLACK,"Play","Highscores","Credits"),
                 mainFrameController
         );
+        
+        creditsController = new CreditsController(
+                new CreditsPanel(),
+                new CreditsModel("Credits", CONTRIBUTORS, Color.BLACK),
+                mainFrameController
+        );
                 
         mainFrameController.addPanel(splashController.getPanel(),SPLASH_KEY);
         mainFrameController.addPanel(functionController.getPanel(),FUNCTION_KEY);
+        mainFrameController.addPanel(creditsController.getPanel(),CREDITS_KEY);
     }
     
     private void setupAndStart(){
         javax.swing.SwingUtilities.invokeLater(() -> {
             setup();
+            //mainFrameController.changeVisibleCard(CREDITS_KEY);
             mainFrameController.changeVisibleCard(SPLASH_KEY);
             mainFrameController.getFrame().setVisible(true);
         });
