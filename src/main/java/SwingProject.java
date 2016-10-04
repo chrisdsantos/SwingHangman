@@ -52,7 +52,7 @@ public class SwingProject {
         
         functionController = new FunctionController(
                 new FunctionPanel(),
-                new FunctionModel(),
+                new FunctionModel(Color.BLACK,"Play","Highscores","Credits"),
                 mainFrameController
         );
                 
