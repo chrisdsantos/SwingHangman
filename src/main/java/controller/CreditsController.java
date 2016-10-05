@@ -5,6 +5,9 @@
  */
 package main.java.controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import main.java.SwingProject;
 import main.java.model.CreditsModel;
 import main.java.view.CreditsPanel;
 
@@ -29,6 +32,14 @@ public class CreditsController {
         panel.setTitle(model.getCreditsTitle());
         panel.setMembers(model.getMembers());
         panel.setBackgroundColor(model.getBackgroundColor());
+        panel.getBackButton().setText(model.getBackButtonText());
+        
+        panel.getBackButton().addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                rootController.changeVisibleCard(SwingProject.FUNCTION_KEY);
+            }
+        });
     }
     
     public CreditsPanel getPanel() {
