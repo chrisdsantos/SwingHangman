@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package main.java.view;
 
 import java.awt.Color;
@@ -18,16 +14,17 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import static main.java.SwingProject.CONTRIBUTORS;
 
-/**
- *
- * @author Nahid
- */
 public class HighScorePanel extends JPanel{
     private javax.swing.JLabel highScoreLabel;
+    
+    //Getting the name of members in array
     private javax.swing.JLabel[] membersLabels = new JLabel[CONTRIBUTORS.length];
     private JButton backButton;
     
+    //Declaring the font,bold and size of button text
     private static final Font BUTTON_FONT = new Font("Arial Black", Font.BOLD, 15);
+    
+    //Declareing the button border withe specific size, color
     private static final Border BUTTON_BORDER = BorderFactory.
             createCompoundBorder(BorderFactory.createEmptyBorder(5,5,5,5),
                     BorderFactory.createBevelBorder(BevelBorder.RAISED,Color.WHITE,Color.GRAY));
@@ -35,16 +32,23 @@ public class HighScorePanel extends JPanel{
     public HighScorePanel() {
         initComponents();
     }
+        //Method: getBackButton
+        //Purpose: Having access to Backbutton 
         public JButton getBackButton(){
         return this.backButton;
         }
-       private void initComponents() {
+        
+        //geting the color of cackground as prameter and modyfing it
+        private void initComponents() {
         this.setBackground(Color.BLACK);
            
         this.setLayout(new GridBagLayout());
         
         GridBagConstraints gc = new GridBagConstraints();
         
+        /*Giving values to set up font, color, Horizontal and vertical Alignment
+        and creat empty border size
+        */
         highScoreLabel = new JLabel("Placeholder");
         highScoreLabel.setFont(new java.awt.Font("Arial Black", 0, 36));
         highScoreLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -61,13 +65,12 @@ public class HighScorePanel extends JPanel{
         gc.weighty = 1;
         this.add(highScoreLabel, gc);
         
+        //for loop makes all member name lable looks like each other
         for(int i = 0; i < CONTRIBUTORS.length; i++) {
             membersLabels[i] = new JLabel("Placeholder");
             membersLabels[i].setFont(new java.awt.Font("Arial", 0, 24));
             membersLabels[i].setForeground(new java.awt.Color(255, 255, 255));
             membersLabels[i].setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-           // membersLabels[i].setVerticalAlignment(javax.swing.SwingConstants.CENTER);
-           // membersLabels[i].setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
             
            gc.fill = GridBagConstraints.BOTH;
             gc.gridx = 1;
@@ -75,9 +78,12 @@ public class HighScorePanel extends JPanel{
             gc.gridwidth = 1;
             gc.gridheight = 1;
             gc.weightx = .5;
-            //gc.weighty = ;
+           
+            //Display it on the screen
            this.add(membersLabels[i], gc);
         }
+        
+        //Set up the button for specifiec color and dimension size, font and border
         backButton = new JButton("Placeholder");
         backButton.setBackground(Color.BLACK);
         backButton.setForeground(Color.WHITE);
@@ -91,7 +97,8 @@ public class HighScorePanel extends JPanel{
         gc.gridwidth = 1;
         gc.gridheight = 1;
         gc.weightx = .15;
-        //gc.weighty = ;
+        
+        //Display back button on screen
         this.add(backButton, gc);
         
         JPanel placeHolder = new JPanel();
@@ -106,17 +113,21 @@ public class HighScorePanel extends JPanel{
         this.add(placeHolder, gc);
         
     }
-       
+       //Method: setTitle
+       //Purpose: Modyfing tilte name
        public void setTitle(String newTitle){
         this.highScoreLabel.setText(newTitle);
     }
-    
+    //Method: setMember
+    //Purpose: Modyfing the member names 
     public void setMembers(String[] newMembers){
         for(int i = 0; i < CONTRIBUTORS.length; i++){
                 this.membersLabels[i].setText(newMembers[i]);
         }
     }
     
+    //Method: setBackgroundColor
+    //Purpose: Modyfing the back ground color
     public void setBackgroundColor(Color newColor){
         this.setBackground(newColor);
     }
