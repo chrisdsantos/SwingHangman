@@ -34,8 +34,31 @@ public class GameController{
     
     private void setup(){
         model.setScore(100);
-        model.setDateTime();
-        panel.setDateTime(model.getDateTime());
+                
+        panel.addAncestorListener(new AncestorListener(){
+            @Override
+            public void ancestorAdded(AncestorEvent event) {
+                Timer clock = new Timer(1000, new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        model.setDateTime();
+                        panel.setDateTime(model.getDateTime());
+                    }
+                });
+                clock.setInitialDelay(0);
+                clock.setRepeats(true);
+                clock.start();
+            }
+
+            @Override
+            public void ancestorRemoved(AncestorEvent event) {
+            }
+
+            @Override
+            public void ancestorMoved(AncestorEvent event) {
+            }
+            
+        });
     }
 
     public GamePanel getPanel() {
