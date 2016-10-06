@@ -12,10 +12,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
-<<<<<<< HEAD
 import javax.swing.ImageIcon;
-=======
->>>>>>> 7e2ae539887ac3545af95eaf21bfc1b49f89d10e
 
 /**
  *
@@ -27,20 +24,13 @@ public class GameModel implements PanelModel{
     private LocalDateTime dateTime;
     private int gameScore;
     private int[] lettersUsed;
-<<<<<<< HEAD
     private int guesses;
-=======
->>>>>>> 7e2ae539887ac3545af95eaf21bfc1b49f89d10e
     private ArrayList<String> dictionary;
     private Scanner scan;
     private String randomWord;
        
     public GameModel(){
         backgroundColor = Color.BLACK;
-<<<<<<< HEAD
-        
-=======
->>>>>>> 7e2ae539887ac3545af95eaf21bfc1b49f89d10e
     }
     
     public GameModel(String fileName){
@@ -87,11 +77,8 @@ public class GameModel implements PanelModel{
         return randomWord;
     }
     
-<<<<<<< HEAD
     //name: readDictionary()
     //purpose: reads a given file that contains words for game (dictionary)
-=======
->>>>>>> 7e2ae539887ac3545af95eaf21bfc1b49f89d10e
     private void readDictionary(String dict) {
         try{
             this.scan = new Scanner(new File(dict));
@@ -106,16 +93,12 @@ public class GameModel implements PanelModel{
         scan.close();
     }
     
-<<<<<<< HEAD
     //name: selectRandomWord()
     //purpose: selects random word from dictionary
-=======
->>>>>>> 7e2ae539887ac3545af95eaf21bfc1b49f89d10e
     private void selectRandomWord() {
         Random rand = new Random();
         randomWord = this.dictionary.get(rand.nextInt(this.dictionary.size()));
     }
-<<<<<<< HEAD
     
     //method: updateImage
     //purpose: updates image whenever there is a wrong guess
@@ -135,6 +118,3 @@ public class GameModel implements PanelModel{
         return guesses;
     }
 }
-=======
-}
->>>>>>> 7e2ae539887ac3545af95eaf21bfc1b49f89d10e
