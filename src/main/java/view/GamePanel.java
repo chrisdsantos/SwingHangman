@@ -10,9 +10,11 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Graphics;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.BevelBorder;
 //import javax.swing.JTextField;
 
 /**
@@ -35,17 +37,24 @@ public class GamePanel extends JPanel{
         
         //top field
         JPanel topContainer = new JPanel();
-        dateTimeLabel = new JLabel("Placeholder");
-        topContainer.add(dateTimeLabel);
         this.add(topContainer, BorderLayout.PAGE_START);
         
         //center field
         JPanel graphicsPanel = new JPanel();
+        /*graphicsPanel.setBorder(BorderFactory.
+            createCompoundBorder(BorderFactory.createEmptyBorder(5,5,5,5),
+                    BorderFactory.createBevelBorder(BevelBorder.RAISED,Color.WHITE,Color.GRAY)));*/
         this.add(graphicsPanel, BorderLayout.CENTER);
         
         //right field
+        JPanel right = new JPanel(new GridLayout(7,1));
+        dateTimeLabel = new JLabel("Placeholder");
         JButton skip = new JButton("skip");
-        this.add(skip, BorderLayout.LINE_END);
+        
+        right.add(dateTimeLabel);
+        right.add(new JLabel());
+        right.add(skip);
+        this.add(right, BorderLayout.EAST);
         
         //bottom field
         JPanel keyboard = new JPanel();
