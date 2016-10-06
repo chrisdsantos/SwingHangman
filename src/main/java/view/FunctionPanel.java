@@ -108,7 +108,7 @@ public class FunctionPanel extends JPanel{
         playButton.setForeground(Color.WHITE);
         playButton.setFont(BUTTON_FONT);
         playButton.setBorder(BUTTON_BORDER);
-        highScoresButton = new JButton("Highscores");
+        highScoresButton = new JButton("HighScores");
         highScoresButton.setBackground(Color.BLACK);
         highScoresButton.setForeground(Color.WHITE);
         highScoresButton.setFont(BUTTON_FONT);
