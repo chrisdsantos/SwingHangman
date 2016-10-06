@@ -8,6 +8,7 @@ package main.java.model;
 import java.awt.Color;
 import java.io.File;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -46,7 +47,8 @@ public class GameModel implements PanelModel{
     //getDateTime
     //purpose: returns current displayed date/time
     public String getDateTime() {
-        return dateTime.toString();
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MMM-dd-uuuu hh:mm:ss a");
+        return dtf.format(dateTime);
     }
 
     //setScore
