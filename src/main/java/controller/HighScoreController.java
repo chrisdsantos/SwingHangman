@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package main.java.controller;
 
 import java.awt.event.ActionEvent;
@@ -10,10 +6,12 @@ import java.awt.event.ActionListener;
 import main.java.SwingProject;
 import main.java.model.HighScoreModel;
 import main.java.view.HighScorePanel;
-/**
- *
- * @author Nahid
- */
+
+//Class: HighScoreController
+/*Porpuse: delcareing panel, model, controller as privata and set up all geter, 
+ *seter methods to having access to variables and Modyfing variables like
+ *title of page, Members of group,the color of back ground page and back buton
+*/
 public class HighScoreController {
     private HighScorePanel panel;
     private HighScoreModel model;
@@ -27,6 +25,8 @@ public class HighScoreController {
         this.setup();
     }
     
+    //Method: setup
+    //Purpose: Modifing variables title name, members name, background color and back button
     private void setup() {
         panel.setTitle(model.getHighScoreTitle());
         panel.setMembers(model.getMembers());
@@ -41,18 +41,26 @@ public class HighScoreController {
         });
     }
     
+    //Method: getPanel
+    //Purpose: Having access to panel variable
     public HighScorePanel getPanel() {
         return this.panel;
     }
     
+    //Method: setPanel
+    //Purpose: Modyfing the panel of HighScore
     public void setPanel(HighScorePanel panel) {
         this.panel = panel;
     }
     
+    //Method: getModel
+    //Purpose: Having access to model variable
     public HighScoreModel getModel() {
         return this.model;
     }
     
+    //Method: setModel
+    //Purpose: Modyfing the Model variable
     public void setModel(HighScoreModel model) {
         this.model = model;
     }
