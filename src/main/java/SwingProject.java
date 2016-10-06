@@ -1,8 +1,30 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/*******************************************************************************
+*  file:SwingProject
+*  author:Omar Rodriguez
+          Nahid Enayatzadeh
+          Marc Deaso
+          Christopher Santos
+          Jazmin Guerrero
+*   class: CS245 - Programming Graphical User Interfaces
+* 
+*  assignment: Swing ProjectV1
+*  date last modified: October/06/2016
+* 
+* Purpose: This program called Hangman("Point-and-click") games where the player
+* typically uses a mouse to interact with the environment and solve puzzles.
+* Program working with following functions:
+* 1)Centered the screen on 600 x 400 pixel window
+* 2)Program will have a start up screen which display group name for 3 second
+* 3)After showing three function buttons, play, High Score and credit on new screen
+* 4)By clicking on each button take us to the new page 
+* 5)Must display current time and date
+* 6)This game a random word will be selected from the following list(abstract,
+* cemetery, nurse,pharmacy,climbing). user may click on one of the alphebate 
+* button to guess the letter which may be in selected word of guessing, the line 
+* makes by the lines and the button will be display. if the guessing is not found
+* it will give us alert
+* 
+*/
 package main.java;
 
 import java.awt.Color;
@@ -23,8 +45,14 @@ public class SwingProject {
         "Nahid Enayatzadeh , #",
         "Marc Deaso, 011179285",
         "Christopher Santos, #",
-        "Jazmin Guerrero, #"
-    };
+        "Jazmin Guerrero, #"};
+    
+    public static final String SCORE_NUMBER[] = {
+        "Omar Rodriguez..00",
+        "Nahid Enayatzadeh..00",
+        "Marc Deaso..00",
+        "Christopher Santos..00",
+        "Jazmin Guerrero..00"};
     
     public static final String SPLASH_KEY = "splashscreen";
     public static final String FUNCTION_KEY = "functionscreen";
@@ -40,6 +68,7 @@ public class SwingProject {
     private GameController gameController;
     private CreditsController creditsController;
     private GameOverController gameoverController;
+//    private HighScoreController highScoreController;
     
     private SwingProject(){
     }
