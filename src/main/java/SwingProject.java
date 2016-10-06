@@ -17,11 +17,13 @@ import main.java.view.*;
  */
 public class SwingProject {
     public static final String PROJECT_NAME = "CS 245 - Swing Project v1";
+    public static final String DICTIONARY = "src/main/resources/dictionary.txt";
     public static final String CONTRIBUTORS[] = {
         "Omar Rodriguez, #",
         "Nahid Enayatzadeh , #",
-        "Marc Deaso, #",
-        "Christopher Santos, #"};
+        "Marc Deaso, 011179285",
+        "Christopher Santos, #"
+    };
     
     public static final String SPLASH_KEY = "splashscreen";
     public static final String FUNCTION_KEY = "functionscreen";
@@ -34,6 +36,7 @@ public class SwingProject {
     
     private SplashController splashController;
     private FunctionController functionController;
+    private GameController gameController;
     private CreditsController creditsController;
     
     private SwingProject(){
@@ -57,6 +60,12 @@ public class SwingProject {
                 mainFrameController
         );
         
+        gameController = new GameController(
+                new GamePanel(),
+                new GameModel(DICTIONARY),
+                mainFrameController
+        );
+        
         creditsController = new CreditsController(
                 new CreditsPanel(),
                 new CreditsModel("Credits", CONTRIBUTORS, Color.BLACK),
@@ -65,13 +74,14 @@ public class SwingProject {
                 
         mainFrameController.addPanel(splashController.getPanel(),SPLASH_KEY);
         mainFrameController.addPanel(functionController.getPanel(),FUNCTION_KEY);
+        mainFrameController.addPanel(gameController.getPanel(),GAME_KEY);
         mainFrameController.addPanel(creditsController.getPanel(),CREDITS_KEY);
     }
     
     private void setupAndStart(){
         javax.swing.SwingUtilities.invokeLater(() -> {
             setup();
-            //mainFrameController.changeVisibleCard(CREDITS_KEY);
+            //mainFrameController.changeVisibleCard(GAME_KEY);
             mainFrameController.changeVisibleCard(SPLASH_KEY);
             mainFrameController.getFrame().setVisible(true);
         });
