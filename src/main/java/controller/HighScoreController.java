@@ -5,6 +5,8 @@
  */
 package main.java.controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import main.java.SwingProject;
 import main.java.model.HighScoreModel;
 import main.java.view.HighScorePanel;
@@ -29,8 +31,10 @@ public class HighScoreController {
         panel.setTitle(model.getHighScoreTitle());
         panel.setMembers(model.getMembers());
         panel.setBackgroundColor(model.getBackgroundColor());
+        panel.getBackButton().setText(model.getBackButtonText());
         
         panel.getBackButton().addActionListener(new ActionListener(){
+            
          public void actionPerformed(ActionEvent e){
                rootController.changeVisibleCard(SwingProject.FUNCTION_KEY);
          }   
