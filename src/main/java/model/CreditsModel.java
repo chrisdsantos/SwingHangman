@@ -16,17 +16,20 @@ public class CreditsModel implements PanelModel {
     private String creditsTitle;
     private String[] teamMembers;
     private Color backgroundColor;
+    private String backButtonText;
     
     public CreditsModel() {
         this.creditsTitle = "PLACEHOLDER";
         this.teamMembers = new String[CONTRIBUTORS.length];
         this.backgroundColor = Color.BLACK;
+        this.backButtonText = "Back";
     }
     
     public CreditsModel(String title, String[] members, Color color) {
         this.creditsTitle = title;
         this.teamMembers = members;
         this.backgroundColor = color;
+        this.backButtonText = "Back";
     }
     
     public String getCreditsTitle() {
@@ -51,5 +54,9 @@ public class CreditsModel implements PanelModel {
 
     public void setBackgroundColor(Color backgroundColor) {
         this.backgroundColor = backgroundColor;
+    }
+
+    public String getBackButtonText() {
+        return this.backButtonText;
     }
 }
