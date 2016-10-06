@@ -16,17 +16,20 @@ public class HighScoreModel implements PanelModel {
     private String highScoreTitle;
     private String[] teamMembers;
     private Color backgroundColor;
+    private String backButtonText;
     
     public HighScoreModel() {
         this.highScoreTitle = "PLACEHOLDER";
         this.teamMembers = new String[CONTRIBUTORS.length];
         this.backgroundColor = Color.BLACK;
+        this.backButtonText = "Back";
     }
     
      public HighScoreModel(String title, String[] members, Color color) {
         this.highScoreTitle = title;
         this.teamMembers = members;
         this.backgroundColor = color;
+        this.backButtonText = "Back";
     }
      
      public String getHighScoreTitle() {
@@ -51,5 +54,9 @@ public class HighScoreModel implements PanelModel {
 
     public void setBackgroundColor(Color backgroundColor) {
         this.backgroundColor = backgroundColor;
+    }
+    
+    public String getBackButtonText() {
+        return this.backButtonText;
     }
 }
