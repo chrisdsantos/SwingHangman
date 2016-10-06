@@ -35,6 +35,7 @@ public class SwingProject {
     private SplashController splashController;
     private FunctionController functionController;
     private CreditsController creditsController;
+    private GameOverController gameoverController;
     
     private SwingProject(){
     }
@@ -62,16 +63,23 @@ public class SwingProject {
                 new CreditsModel("Credits", CONTRIBUTORS, Color.BLACK),
                 mainFrameController
         );
+        
+        gameoverController = new GameOverController(
+                new GameOverPanel(),
+                new GameOverModel(),
+                mainFrameController
+        );
                 
         mainFrameController.addPanel(splashController.getPanel(),SPLASH_KEY);
         mainFrameController.addPanel(functionController.getPanel(),FUNCTION_KEY);
         mainFrameController.addPanel(creditsController.getPanel(),CREDITS_KEY);
+        mainFrameController.addPanel(gameoverController.getPanel(),GAME_OVER_KEY);
     }
     
     private void setupAndStart(){
         javax.swing.SwingUtilities.invokeLater(() -> {
             setup();
-            //mainFrameController.changeVisibleCard(CREDITS_KEY);
+//            mainFrameController.changeVisibleCard(GAME_OVER_KEY);
             mainFrameController.changeVisibleCard(SPLASH_KEY);
             mainFrameController.getFrame().setVisible(true);
         });
