@@ -1,8 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/*************************************************************** 
+*file: GameOverController.java 
+* author: Jazmin Guerrero, Omar Rodriguez, Marc Deaso 
+* class: CS 245 - Programming Graphical User Interfaces
+* 
+* 
+*assignment: Swing Project 1 
+* date last modified: 10/06/2016
+* 
+* purpose: This class is the view representation of a gameover screen
+* 
+****************************************************************/ 
+
 package main.java.view;
 
 import java.awt.Color;
@@ -16,10 +24,6 @@ import javax.swing.JPanel;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 
-/**
- *
- * @author Marc
- */
 public class GameOverPanel extends JPanel {
     private JLabel gameOverLabel;
     private JLabel scoreLabel;
@@ -34,15 +38,10 @@ public class GameOverPanel extends JPanel {
     public GameOverPanel() {
         this.initComponents();
     }
-    
-    public JButton getResetButton() {
-        return this.button1;
-    }
-    
-    public JButton getMenuButton() {
-        return this.button2;
-    }
 
+    //method: initComponents
+    //initializes and attaches components in a gameoverpanel view, and sets
+    //default values
     private void initComponents() {
         this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
         this.setBackground(Color.BLACK);
@@ -85,6 +84,14 @@ public class GameOverPanel extends JPanel {
         this.add(button2);
     }
 
+    public JButton getResetButton() {
+        return this.button1;
+    }
+    
+    public JButton getMenuButton() {
+        return this.button2;
+    }
+    
     public JLabel getGameOverLabel() {
         return gameOverLabel;
     }

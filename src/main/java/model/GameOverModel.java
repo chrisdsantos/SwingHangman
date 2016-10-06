@@ -1,14 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/*************************************************************** 
+*file: GameOverController.java 
+* author: Jazmin Guerrero, Omar Rodriguez, Marc Deaso 
+* class: CS 245 - Programming Graphical User Interfaces
+* 
+* 
+*assignment: Swing Project 1 
+* date last modified: 10/06/2016
+* 
+* purpose: this class is the model containing the business logic 
+* for a game over screen
+* 
+****************************************************************/ 
 package main.java.model;
 
-/**
- *
- * @author Marc
- */
 public class GameOverModel implements PanelModel {
     private int score;
     public static final String GAME_OVER_TEXT = "Game Over!";

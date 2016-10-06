@@ -1,8 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/*************************************************************** 
+*file: GameOverController.java 
+* author: Jazmin Guerrero, Omar Rodriguez, Marc Deaso 
+* class: CS 245 - Programming Graphical User Interfaces
+* 
+* 
+*assignment: Swing Project 1 
+* date last modified: 10/06/2016
+* 
+* purpose: This class is the controller between the gameover view
+* and gameover model
+* 
+****************************************************************/ 
 package main.java.controller;
 
 import java.awt.event.ActionEvent;
@@ -11,10 +19,6 @@ import main.java.SwingProject;
 import main.java.model.GameOverModel;
 import main.java.view.GameOverPanel;
 
-/**
- *
- * @author Marc
- */
 public class GameOverController {
     private GameOverPanel panel;
     private GameOverModel model;
@@ -28,6 +32,9 @@ public class GameOverController {
         this.setup();
     }
 
+    // method: setup
+    // purpose: Connects information stored in model to the view
+    // ie sets label names, button names.
     private void setup() {
         panel.getGameOverLabel().setText(model.GAME_OVER_TEXT);
         panel.getMenuButton().setText(model.getMenuButtonText());
