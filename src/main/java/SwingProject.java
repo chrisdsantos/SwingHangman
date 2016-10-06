@@ -22,7 +22,8 @@ public class SwingProject {
         "Omar Rodriguez, #",
         "Nahid Enayatzadeh , #",
         "Marc Deaso, 011179285",
-        "Christopher Santos, #"
+        "Christopher Santos, #",
+        "Jazmin Guerrero, #"
     };
     
     public static final String SPLASH_KEY = "splashscreen";
