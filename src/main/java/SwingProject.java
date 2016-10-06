@@ -21,7 +21,15 @@ public class SwingProject {
         "Omar Rodriguez, #",
         "Nahid Enayatzadeh , #",
         "Marc Deaso, #",
-        "Christopher Santos, #"};
+        "Christopher Santos, #",
+        "Jazmin Guerrero"};
+    
+    public static final String SCORE_NUMBER[] = {
+        "Omar Rodriguez..00",
+        "Nahid Enayatzadeh..00",
+        "Marc Deaso..00",
+        "Christopher Santos..00",
+        "Jazmin Guerrero..00"};
     
     public static final String SPLASH_KEY = "splashscreen";
     public static final String FUNCTION_KEY = "functionscreen";
@@ -35,6 +43,7 @@ public class SwingProject {
     private SplashController splashController;
     private FunctionController functionController;
     private CreditsController creditsController;
+    private HighScoreController highScoreController;
     
     private SwingProject(){
     }
@@ -53,7 +62,7 @@ public class SwingProject {
         
         functionController = new FunctionController(
                 new FunctionPanel(),
-                new FunctionModel(Color.BLACK,"Play","Highscores","Credits"),
+                new FunctionModel(Color.BLACK,"Play","HighScores","Credits"),
                 mainFrameController
         );
         
@@ -62,10 +71,19 @@ public class SwingProject {
                 new CreditsModel("Credits", CONTRIBUTORS, Color.BLACK),
                 mainFrameController
         );
+        
+         highScoreController = new HighScoreController(
+                new HighScorePanel(),
+                new HighScoreModel("HighScore", SCORE_NUMBER, Color.BLACK),
+                mainFrameController
+        );
+        
+        
                 
         mainFrameController.addPanel(splashController.getPanel(),SPLASH_KEY);
         mainFrameController.addPanel(functionController.getPanel(),FUNCTION_KEY);
         mainFrameController.addPanel(creditsController.getPanel(),CREDITS_KEY);
+        mainFrameController.addPanel(highScoreController.getPanel(),HIGH_SCORE_KEY);
     }
     
     private void setupAndStart(){
