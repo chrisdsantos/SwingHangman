@@ -6,11 +6,7 @@
 package main.java.model;
 
 import java.awt.Color;
-import java.io.File;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.Scanner;
 
 /**
  *
@@ -22,20 +18,16 @@ public class GameModel implements PanelModel{
     private LocalDateTime dateTime;
     private int gameScore;
     private int[] lettersUsed;
-    private ArrayList<String> dictionary;
-    private Scanner scan;
-    private String randomWord;
-       
+    
+    
     public GameModel(){
         backgroundColor = Color.BLACK;
     }
     
-    public GameModel(String fileName){
-        //backgroundColor = color;
-        dictionary = new ArrayList<String>();
-        this.readDictionary(fileName);
-        this.selectRandomWord();
-    }
+//    public GameModel(String title, String team, Color color, int time){
+//        backgroundColor = color;
+//        splashTime = time;
+//    }
 
     //setDateTime
     //purpose: sets game date/time to system date/time
@@ -67,28 +59,5 @@ public class GameModel implements PanelModel{
     
     public int[] getLettersUsed(){
         return lettersUsed;
-    }
-    
-    public String getRandomWord() {
-        return randomWord;
-    }
-    
-    private void readDictionary(String dict) {
-        try{
-            this.scan = new Scanner(new File(dict));
-        } catch(Exception e) {
-            System.out.println("The file " + dict + " deos not exist.\n"
-                    + "No dictionary file was loaded.");
-            return;
-        }
-        while(scan.hasNextLine()) {
-            this.dictionary.add(this.scan.nextLine());
-        }
-        scan.close();
-    }
-    
-    private void selectRandomWord() {
-        Random rand = new Random();
-        randomWord = this.dictionary.get(rand.nextInt(this.dictionary.size()));
     }
 }

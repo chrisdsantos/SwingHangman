@@ -62,7 +62,7 @@ public class SwingProject {
         
         gameController = new GameController(
                 new GamePanel(),
-                new GameModel(DICTIONARY),
+                new GameModel(),
                 mainFrameController
         );
         
@@ -81,8 +81,8 @@ public class SwingProject {
     private void setupAndStart(){
         javax.swing.SwingUtilities.invokeLater(() -> {
             setup();
-            //mainFrameController.changeVisibleCard(GAME_KEY);
-            mainFrameController.changeVisibleCard(SPLASH_KEY);
+            mainFrameController.changeVisibleCard(GAME_KEY);
+//            mainFrameController.changeVisibleCard(SPLASH_KEY);
             mainFrameController.getFrame().setVisible(true);
         });
     }

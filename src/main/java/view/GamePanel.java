@@ -10,6 +10,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Graphics;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -21,10 +22,18 @@ import javax.swing.JPanel;
  */
 public class GamePanel extends JPanel{
     
-    private javax.swing.JLabel dateTimeLabel;
-    
+    private JLabel gameNameLabel;
+    private JLabel dateTimeLabel;
+    private JLabel points;
+    private JButton skipButton;
+    private HangmanPanel hmPanel;
+
     public GamePanel() {
-        initComponents();
+        gameNameLabel = new JLabel("Placeholder");
+        dateTimeLabel =  new JLabel("Placeholder");
+        points  = new JLabel("Placeholder");
+        skipButton = new JButton("SKIP");
+        hmPanel = new HangmanPanel();
     }
                         
     //initComponents
@@ -35,13 +44,13 @@ public class GamePanel extends JPanel{
         
         //top field
         JPanel topContainer = new JPanel();
-        dateTimeLabel = new JLabel("Placeholder");
+        topContainer.setLayout(new BoxLayout(topContainer, BoxLayout.X_AXIS));
+        topContainer.add(gameNameLabel);
         topContainer.add(dateTimeLabel);
         this.add(topContainer, BorderLayout.PAGE_START);
         
         //center field
-        JPanel graphicsPanel = new JPanel();
-        this.add(graphicsPanel, BorderLayout.CENTER);
+        this.add(hmPanel, BorderLayout.CENTER);
         
         //right field
         JButton skip = new JButton("skip");

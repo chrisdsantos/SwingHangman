@@ -11,7 +11,6 @@ import javax.swing.Timer;
 import javax.swing.event.AncestorEvent;
 import javax.swing.event.AncestorListener;
 import main.java.SwingProject;
-import static main.java.SwingProject.DICTIONARY;
 import main.java.model.GameModel;
 import main.java.view.GamePanel;
 
@@ -54,9 +53,6 @@ public class GameController{
         this.model = model;
     }
     
-    /*public String getWord() {
-        String word = model.getRandomWord();
-        return word;
-    }*/
+    
     
 }
