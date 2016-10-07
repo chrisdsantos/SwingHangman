@@ -68,7 +68,7 @@ public class SwingProject {
     private GameController gameController;
     private CreditsController creditsController;
     private GameOverController gameoverController;
-//    private HighScoreController highScoreController;
+    private HighScoreController highScoreController;
     
     private SwingProject(){
     }
@@ -87,7 +87,7 @@ public class SwingProject {
         
         functionController = new FunctionController(
                 new FunctionPanel(),
-                new FunctionModel(Color.BLACK,"Play","Highscores","Credits"),
+                new FunctionModel(Color.BLACK,"Play","HighScores","Credits"),
                 mainFrameController
         );
         
@@ -108,12 +108,18 @@ public class SwingProject {
                 new GameOverModel(),
                 mainFrameController
         );
+         highScoreController = new HighScoreController(
+                new HighScorePanel(),
+                new HighScoreModel("HighScore", SCORE_NUMBER, Color.BLACK),
+                mainFrameController
+        );
                 
         mainFrameController.addPanel(splashController.getPanel(),SPLASH_KEY);
         mainFrameController.addPanel(functionController.getPanel(),FUNCTION_KEY);
         mainFrameController.addPanel(gameController.getPanel(),GAME_KEY);
         mainFrameController.addPanel(creditsController.getPanel(),CREDITS_KEY);
         mainFrameController.addPanel(gameoverController.getPanel(),GAME_OVER_KEY);
+        mainFrameController.addPanel(highScoreController.getPanel(),HIGH_SCORE_KEY);
     }
     
     private void setupAndStart(){

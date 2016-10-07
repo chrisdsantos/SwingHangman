@@ -46,6 +46,7 @@ public class FunctionPanel extends JPanel{
             imageLabel = new JLabel(small);
             currentSize = 3;
         }catch(Exception e){
+            e.printStackTrace();
             imageLabel = new JLabel();
         }
         initComponents();
