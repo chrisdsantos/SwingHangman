@@ -19,15 +19,13 @@ import javax.swing.ImageIcon;
  * @author Chris
  */
 public class GameModel implements PanelModel{
+    private Scanner scan;
     private Color backgroundColor;
-    private int incorrectCount;
     private LocalDateTime dateTime;
     private int gameScore;
-    private int[] lettersUsed;
     private int guesses;
-    private ArrayList<String> dictionary;
-    private Scanner scan;
     private String randomWord;
+    private ArrayList<String> dictionary;
        
     public GameModel(){
         backgroundColor = Color.BLACK;
@@ -40,44 +38,32 @@ public class GameModel implements PanelModel{
         this.selectRandomWord();
     }
 
-    //setDateTime
+    //method: setDateTime
     //purpose: sets game date/time to system date/time
     public void setDateTime() {
         this.dateTime = LocalDateTime.now();
     }
     
-    //getDateTime
+    //method: getDateTime
     //purpose: returns current displayed date/time
     public String getDateTime() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MMM-dd-uuuu hh:mm:ss a");
         return dtf.format(dateTime);
     }
 
-    //setScore
+    //method: setScore
     //purpose: sets score value to points
     public void setScore(int score) {
         this.gameScore = score;
     }
     
-    //getScore
+    //method: getScore
     //purpose: returns current score value
     public int getScore() {
         return gameScore;
     }
-
-//    public int[] setLettersUsed(){
-//        
-//    }
     
-    public int[] getLettersUsed(){
-        return lettersUsed;
-    }
-    
-    public String getRandomWord() {
-        return randomWord;
-    }
-    
-    //name: readDictionary()
+    //method: readDictionary
     //purpose: reads a given file that contains words for game (dictionary)
     private void readDictionary(String dict) {
         try{
@@ -93,9 +79,9 @@ public class GameModel implements PanelModel{
         scan.close();
     }
     
-    //name: selectRandomWord()
+    //method: selectRandomWord
     //purpose: selects random word from dictionary
-    private void selectRandomWord() {
+    public void selectRandomWord() {
         Random rand = new Random();
         randomWord = this.dictionary.get(rand.nextInt(this.dictionary.size()));
     }
@@ -103,18 +89,24 @@ public class GameModel implements PanelModel{
     //method: updateImage
     //purpose: updates image whenever there is a wrong guess
     public void updateImage(){
-        int imageNumber = 6 - getGuessesRemaining();
+        int imageNumber = getGuessRemain();
         for(int i=1; i<8; i++){
             if(imageNumber == i){
-                ImageIcon image = new ImageIcon(getClass().getResource("hangman_gfx/"+i+".jpg"));
-                panel.graphicsPanel.setIcon(image);
+                ImageIcon image = new ImageIcon(getClass().getResource(i+".jpg"));
+                //panel.graphicsPanel.setIcon(image);
             }
         }
     }
     
-    //method: getGuessesRemaining()
-    //purpose: returns number of guesses remaining
-    public int getGuessesRemaining(){
+    //method: getGuessRemain
+    //purpose: returns number of guesses allowed
+    public int getGuessRemain(){
         return guesses;
+    }
+
+    //method: setGuessRemain
+    //purpose: allows to set number of guesses remaining
+    public void setGuessRemain(int gr){
+        guesses = gr;
     }
 }
