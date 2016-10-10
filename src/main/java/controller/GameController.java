@@ -24,6 +24,7 @@ public class GameController{
     private GamePanel panel;
     private GameModel model;
     private MainFrameController rootController;
+    private static final int GUESSES_ALLOWED = 6;
     
     public GameController(GamePanel panel, GameModel model, MainFrameController rootController){
         this.panel = (GamePanel) panel;
@@ -42,7 +43,9 @@ public class GameController{
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         model.setDateTime();
+                        model.setGuessRemain(GUESSES_ALLOWED);
                         panel.setDateTime(model.getDateTime());
+                        
                     }
                 });
                 clock.setInitialDelay(0);
@@ -76,10 +79,9 @@ public class GameController{
     public void setModel(GameModel model) {
         this.model = model;
     }
-    
-    /*public String getWord() {
-        String word = model.getRandomWord();
-        return word;
-    }*/
+     
+    public void setWord() {
+        model.selectRandomWord();
+    }
     
 }

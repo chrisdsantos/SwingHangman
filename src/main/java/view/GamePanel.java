@@ -25,7 +25,7 @@ import java.awt.event.*;
 public class GamePanel extends JPanel implements ActionListener{
     
     private javax.swing.JLabel dateTimeLabel;
-    private int keychar;
+    private int i;
     private String key;
     JButton[] keyboardButton;
     
@@ -33,131 +33,68 @@ public class GamePanel extends JPanel implements ActionListener{
         initComponents();
     }
     
-    public void actionPerformed(ActionEvent e){
-        if ("A".equals(e.getActionCommand())){
-            keyboardButton[0].setEnabled(false);
-            key = keyboardButton[0].getText();
-        }
-        if ("B".equals(e.getActionCommand())){
-            keyboardButton[1].setEnabled(false);
-        }
-        if ("C".equals(e.getActionCommand())){
-            keyboardButton[2].setEnabled(false);
-        }
-        if ("D".equals(e.getActionCommand())){
-            keyboardButton[3].setEnabled(false);
-        }
-        if ("E".equals(e.getActionCommand())){
-            keyboardButton[4].setEnabled(false);
-        }
-        if ("F".equals(e.getActionCommand())){
-            keyboardButton[5].setEnabled(false);
-        }
-        if ("G".equals(e.getActionCommand())){
-            keyboardButton[6].setEnabled(false);
-        }
-        if ("H".equals(e.getActionCommand())){
-            keyboardButton[7].setEnabled(false);
-        }
-        if ("I".equals(e.getActionCommand())){
-            keyboardButton[8].setEnabled(false);
-        }
-        if ("J".equals(e.getActionCommand())){
-            keyboardButton[9].setEnabled(false);
-        }
-        if ("K".equals(e.getActionCommand())){
-            keyboardButton[10].setEnabled(false);
-        }
-        if ("L".equals(e.getActionCommand())){
-            keyboardButton[11].setEnabled(false);
-        }
-        if ("M".equals(e.getActionCommand())){
-            keyboardButton[12].setEnabled(false);
-        }
-        if ("N".equals(e.getActionCommand())){
-            keyboardButton[13].setEnabled(false);
-        }
-        if ("O".equals(e.getActionCommand())){
-            keyboardButton[14].setEnabled(false);
-        }
-        if ("P".equals(e.getActionCommand())){
-            keyboardButton[15].setEnabled(false);
-        }
-        if ("Q".equals(e.getActionCommand())){
-            keyboardButton[16].setEnabled(false);
-        }
-        if ("R".equals(e.getActionCommand())){
-            keyboardButton[17].setEnabled(false);
-        }
-        if ("S".equals(e.getActionCommand())){
-            keyboardButton[18].setEnabled(false);
-        }
-        if ("T".equals(e.getActionCommand())){
-            keyboardButton[19].setEnabled(false);
-        }
-        if ("U".equals(e.getActionCommand())){
-            keyboardButton[20].setEnabled(false);
-        }
-        if ("V".equals(e.getActionCommand())){
-            keyboardButton[21].setEnabled(false);
-        }
-        if ("W".equals(e.getActionCommand())){
-            keyboardButton[22].setEnabled(false);
-        }
-        if ("X".equals(e.getActionCommand())){
-            keyboardButton[23].setEnabled(false);
-        }
-        if ("Y".equals(e.getActionCommand())){
-            keyboardButton[24].setEnabled(false);
-        }
-        if ("Z".equals(e.getActionCommand())){
-            keyboardButton[25].setEnabled(false);
-        }
-    }
-                        
     //initComponents
     //purpose: set up game button and graphics display arrangement
     private void initComponents() {
+        String key;
+        int ascKey;
+        JLabel[] guessWord;
         
         setLayout(new BorderLayout());
-        
-        //top field
         JPanel topContainer = new JPanel();
-        this.add(topContainer, BorderLayout.PAGE_START);
-        
-        //center field
         JPanel graphicsPanel = new JPanel();
-        /*graphicsPanel.setBorder(BorderFactory.
-            createCompoundBorder(BorderFactory.createEmptyBorder(5,5,5,5),
-                    BorderFactory.createBevelBorder(BevelBorder.RAISED,Color.WHITE,Color.GRAY)));*/
-        this.add(graphicsPanel, BorderLayout.CENTER);
-        
-        
-        //right field
         JPanel right = new JPanel(new GridLayout(7,1));
-        dateTimeLabel = new JLabel("Placeholder");
+        JPanel keyboard = new JPanel();
+        JPanel wordPanel = new JPanel();
         JButton skip = new JButton("skip");
+        dateTimeLabel = new JLabel("Placeholder");
+        keyboard.setLayout(new GridLayout(3,1));
+        keyboardButton = new JButton[26];
+        for(i=0;i<26;i++){
+            ascKey = i+65;
+            key = Character.toString((char)ascKey);
+            keyboardButton[i] = new JButton(key);
+            keyboardButton[i].addActionListener(this);
+            keyboardButton[i].setActionCommand(key);
+            keyboard.add(keyboardButton[i]);
+        }
         
         right.add(dateTimeLabel);
         right.add(new JLabel());
         right.add(skip);
-        this.add(right, BorderLayout.EAST);
+        graphicsPanel.add(skip);
         
-        //bottom field
-        JPanel keyboard = new JPanel();
-        keyboard.setLayout(new GridLayout(3,1));
-        keyboardButton = new JButton[26];
-        for(keychar=65; keychar<91; keychar++){
-            keyboardButton[keychar-65] = new JButton(Character.toString((char) keychar));
-            keyboardButton[keychar-65].addActionListener(this);
-            keyboardButton[keychar-65].setActionCommand(Character.toString((char) keychar));
-            keyboard.add(keyboardButton[keychar-65]);
+        guessWord = new JLabel[10];
+        for(int i=0;i<randomWord.length;i++){
+            guessWord[i].setText("_");
+            wordPanel.add(guessWord[i]);
         }
+        
+        this.add(right, BorderLayout.EAST);
+        this.add(topContainer, BorderLayout.PAGE_START);
+        this.add(graphicsPanel, BorderLayout.CENTER);
         this.add(keyboard, BorderLayout.PAGE_END);
     }
     
+    //actionPerformed
+    //purpose: functions for each key
+    public void actionPerformed(ActionEvent e){
+        //keyboard functions
+        for(int i=0;i<26;i++){
+            if (Character.toString((char)i).equals(e.getActionCommand())){
+                keyboardButton[i+65].setEnabled(false);
+                key = keyboardButton[i+65].getText();
+            }
+            model.setGuessRemain(model.getGuessRemain()-1);
+            if(model.getGuessRemain()==0){
+                //game over
+            }
+        }
+        //skip button
+    }
+    
     public void paintComponent(Graphics g){
-        //super.paintComponent(g)
+        //super.paintComponent(g);
         //g.drawOval(300, 300, 50, 50);
     }
     
@@ -169,4 +106,3 @@ public class GamePanel extends JPanel implements ActionListener{
         dateTimeLabel.setText(dateTime);
     }
 }
-
