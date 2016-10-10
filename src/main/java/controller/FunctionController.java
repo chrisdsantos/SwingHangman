@@ -29,6 +29,7 @@ public class FunctionController {
         this.rootController = rootController;
         setup();
     }
+    
     private void setup(){
         panel.setBackground(model.getBackgroundColor());
         panel.getPlayButton().setText(model.getButton1());

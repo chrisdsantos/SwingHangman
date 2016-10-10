@@ -7,27 +7,31 @@ package main.java.view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
+//import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Graphics;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.BevelBorder;
 import java.awt.event.*;
-//import javax.swing.JTextField;
+import javax.swing.ImageIcon;
+import java.awt.FlowLayout;
+import java.awt.Graphics2D;
+import java.awt.Font;
+import java.awt.RenderingHints;
 
 /**
  *
  * @author Chris
  */
-public class GamePanel extends JPanel implements ActionListener{
+public class GamePanel extends JPanel{
     
-    private javax.swing.JLabel dateTimeLabel;
-    private int i;
-    private String key;
-    JButton[] keyboardButton;
+    private JButton skip;
+    private JButton[] keyboardButton;
+    private JLabel dateTimeLabel;
+    private JPanel wordPanel;
+    private JLabel[] guessWord;
     
     public GamePanel() {
         initComponents();
@@ -36,73 +40,74 @@ public class GamePanel extends JPanel implements ActionListener{
     //initComponents
     //purpose: set up game button and graphics display arrangement
     private void initComponents() {
-        String key;
-        int ascKey;
-        JLabel[] guessWord;
+        int asciiKey;
+        String keyValue;
         
         setLayout(new BorderLayout());
-        JPanel topContainer = new JPanel();
-        JPanel graphicsPanel = new JPanel();
-        JPanel right = new JPanel(new GridLayout(7,1));
-        JPanel keyboard = new JPanel();
+        JPanel imagePanel = new JPanel();
+        JButton graphicBtn = new JButton();
+        //ImageIcon graphics = new ImageIcon(getClass().getResource("7.jpg"));
+
         JPanel wordPanel = new JPanel();
-        JButton skip = new JButton("skip");
-        dateTimeLabel = new JLabel("Placeholder");
+        JPanel keyboard = new JPanel();
         keyboard.setLayout(new GridLayout(3,1));
         keyboardButton = new JButton[26];
-        for(i=0;i<26;i++){
-            ascKey = i+65;
-            key = Character.toString((char)ascKey);
-            keyboardButton[i] = new JButton(key);
-            keyboardButton[i].addActionListener(this);
-            keyboardButton[i].setActionCommand(key);
+        for(int i=0;i<26;i++){
+            asciiKey = i+65;
+            keyValue = Character.toString((char)asciiKey);
+            keyboardButton[i] = new JButton(keyValue);
+            keyboardButton[i].setActionCommand(keyValue);
             keyboard.add(keyboardButton[i]);
         }
         
+        JPanel graphicsPanel = new JPanel(new FlowLayout());
+        graphicsPanel.add(imagePanel);
+        graphicsPanel.add(wordPanel);
+
+        JPanel right = new JPanel(new GridLayout(7,1));
+        dateTimeLabel = new JLabel("Placeholder");
+        skip = new JButton("skip");
+        skip.setActionCommand("skip");
         right.add(dateTimeLabel);
         right.add(new JLabel());
         right.add(skip);
-        graphicsPanel.add(skip);
-        
-        guessWord = new JLabel[10];
-        for(int i=0;i<randomWord.length;i++){
-            guessWord[i].setText("_");
-            wordPanel.add(guessWord[i]);
-        }
         
         this.add(right, BorderLayout.EAST);
-        this.add(topContainer, BorderLayout.PAGE_START);
         this.add(graphicsPanel, BorderLayout.CENTER);
+        this.add(wordPanel, BorderLayout.CENTER);
         this.add(keyboard, BorderLayout.PAGE_END);
     }
     
-    //actionPerformed
-    //purpose: functions for each key
-    public void actionPerformed(ActionEvent e){
-        //keyboard functions
-        for(int i=0;i<26;i++){
-            if (Character.toString((char)i).equals(e.getActionCommand())){
-                keyboardButton[i+65].setEnabled(false);
-                key = keyboardButton[i+65].getText();
-            }
-            model.setGuessRemain(model.getGuessRemain()-1);
-            if(model.getGuessRemain()==0){
-                //game over
-            }
-        }
-        //skip button
+    public JButton getKeyboardButton(int b){
+        return keyboardButton[b];
+    }
+    
+    public JButton getSkipButton(){
+        return skip;
+    }
+    
+    public void setWordPanel(String word){
+//        guessWord = new JLabel[word.length()];
+//        for(int i=0;i<word.length();i++){
+//            guessWord[i].setText("_");
+//            wordPanel.add(guessWord);
+//        }
     }
     
     public void paintComponent(Graphics g){
-        //super.paintComponent(g);
-        //g.drawOval(300, 300, 50, 50);
+        super.paintComponent(g);
+        Font font = new Font("Arial", Font.BOLD, 72);
+        Graphics2D g2 = (Graphics2D) g;
+        g2.setFont(font);
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2.drawString("Hello", 0, 0);
     }
     
-    public Dimension getPreferredSize(){
-        return new Dimension(100,100);
-    }
+//    public Dimension getPreferredSize(){
+//        return new Dimension(100,100);
+//    }
     
-    public void setDateTime(String dateTime){
+    public void setDateTimeLabel(String dateTime){
         dateTimeLabel.setText(dateTime);
     }
 }

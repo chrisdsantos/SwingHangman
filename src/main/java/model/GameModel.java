@@ -19,23 +19,26 @@ import javax.swing.ImageIcon;
  * @author Chris
  */
 public class GameModel implements PanelModel{
-    private Scanner scan;
+
+    private static final int INIT_SCORE = 100;
+    private static final int INIT_GUESSES = 6;
+    private int score;
+    private int guesses;
+    private ArrayList<String> dictionary;
     private Color backgroundColor;
     private LocalDateTime dateTime;
-    private int gameScore;
-    private int guesses;
+    private Scanner scan;
     private String randomWord;
-    private ArrayList<String> dictionary;
-       
+    
     public GameModel(){
         backgroundColor = Color.BLACK;
+        randomWord = "Placeholder";
     }
     
     public GameModel(String fileName){
         //backgroundColor = color;
         dictionary = new ArrayList<String>();
         this.readDictionary(fileName);
-        this.selectRandomWord();
     }
 
     //method: setDateTime
@@ -53,14 +56,34 @@ public class GameModel implements PanelModel{
 
     //method: setScore
     //purpose: sets score value to points
+    public void resetScore() {
+        this.score = INIT_SCORE;
+    }
+    
     public void setScore(int score) {
-        this.gameScore = score;
+        this.score = score;
     }
     
     //method: getScore
     //purpose: returns current score value
     public int getScore() {
-        return gameScore;
+        return score;
+    }
+    
+    //method: setGuessRemain
+    //purpose: allows to set number of guesses remaining
+    public void resetGuessRemain(){
+        guesses = INIT_GUESSES;
+    }
+    
+    public void setGuessRemain(int g){
+        guesses = g;
+    }
+    
+    //method: getGuessRemain
+    //purpose: returns number of guesses allowed
+    public int getGuessRemain(){
+        return guesses;
     }
     
     //method: readDictionary
@@ -81,32 +104,12 @@ public class GameModel implements PanelModel{
     
     //method: selectRandomWord
     //purpose: selects random word from dictionary
-    public void selectRandomWord() {
+    public void setRandomWord() {
         Random rand = new Random();
         randomWord = this.dictionary.get(rand.nextInt(this.dictionary.size()));
     }
     
-    //method: updateImage
-    //purpose: updates image whenever there is a wrong guess
-    public void updateImage(){
-        int imageNumber = getGuessRemain();
-        for(int i=1; i<8; i++){
-            if(imageNumber == i){
-                ImageIcon image = new ImageIcon(getClass().getResource(i+".jpg"));
-                //panel.graphicsPanel.setIcon(image);
-            }
-        }
-    }
-    
-    //method: getGuessRemain
-    //purpose: returns number of guesses allowed
-    public int getGuessRemain(){
-        return guesses;
-    }
-
-    //method: setGuessRemain
-    //purpose: allows to set number of guesses remaining
-    public void setGuessRemain(int gr){
-        guesses = gr;
+    public String getRandomWord(){
+        return randomWord;
     }
 }
