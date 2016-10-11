@@ -6,12 +6,12 @@
 package main.java.controller;
 
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import main.java.SwingProject;
 import main.java.model.FunctionModel;
 import main.java.view.FunctionPanel;
+import main.java.view.GamePanel;
 
 
 /**
@@ -19,6 +19,7 @@ import main.java.view.FunctionPanel;
  * @author Omar
  */
 public class FunctionController {
+    private GameController gameControllerReference;
     private FunctionPanel panel;
     private FunctionModel model;
     private MainFrameController rootController;
@@ -60,24 +61,20 @@ public class FunctionController {
             public void componentHidden(ComponentEvent e) {
             }
         });
-        panel.getPlayButton().addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                rootController.changeVisibleCard(SwingProject.GAME_KEY);
-            }
+        panel.getPlayButton().addActionListener((ActionEvent e) -> {
+            gameControllerReference.resetGame();
+            rootController.changeVisibleCard(SwingProject.GAME_KEY);
         });
-        panel.getHighScoresButton().addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                rootController.changeVisibleCard(SwingProject.HIGH_SCORE_KEY);
-            }
+        panel.getHighScoresButton().addActionListener((ActionEvent e) -> {
+            rootController.changeVisibleCard(SwingProject.HIGH_SCORE_KEY);
         });
-        panel.getCreditsButton().addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                rootController.changeVisibleCard(SwingProject.CREDITS_KEY);
-            }
+        panel.getCreditsButton().addActionListener((ActionEvent e) -> {
+            rootController.changeVisibleCard(SwingProject.CREDITS_KEY);
         });
+    }
+    
+    public void setGameControllerReference(GameController gameControllerReference) {
+        this.gameControllerReference = gameControllerReference;
     }
     
     public FunctionPanel getPanel(){

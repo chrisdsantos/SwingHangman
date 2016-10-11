@@ -30,7 +30,7 @@ public class GameOverPanel extends JPanel {
     private JButton button1;
     private JButton button2;
     
-    private static final Font BUTTON_FONT = new Font("Arial Black", Font.BOLD, 15);
+    private static final Font BUTTON_FONT = new Font("Arial Black", Font.BOLD, 32);
     private static final Border BUTTON_BORDER = BorderFactory.
             createCompoundBorder(BorderFactory.createEmptyBorder(5,5,5,5),
                     BorderFactory.createBevelBorder(BevelBorder.RAISED,Color.WHITE,Color.GRAY));
@@ -65,8 +65,13 @@ public class GameOverPanel extends JPanel {
         scoreLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         this.add(this.scoreLabel);
         
+        JPanel spacer = new JPanel();
+        spacer.setBackground(Color.BLACK);
+        this.add(spacer);
+        
         button1 = new JButton("New Game");
         button1.setAlignmentX(Component.CENTER_ALIGNMENT);
+        button1.setAlignmentY(Component.BOTTOM_ALIGNMENT);
         button1.setBackground(Color.BLACK);
         button1.setForeground(Color.WHITE);
         button1.setFont(BUTTON_FONT);

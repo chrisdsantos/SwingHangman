@@ -7,11 +7,12 @@ package main.java.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import javax.swing.JButton;
 import javax.swing.Timer;
 import javax.swing.event.AncestorEvent;
 import javax.swing.event.AncestorListener;
 import main.java.SwingProject;
-import static main.java.SwingProject.DICTIONARY;
 import main.java.model.GameModel;
 import main.java.view.GamePanel;
 
@@ -33,6 +34,49 @@ public class GameController{
     }
     
     private void setup(){
+        panel.getPoints().setText("Points: "+ Integer.toString(model.getGameScore()));
+        panel.getGameNameLabel().setText("Hangman");
+        panel.addBlanks(model.getWordLength());
+        
+        
+        for(JButton jb : panel.getKeyboardButtonArray()){
+            jb.addActionListener((ActionEvent e) -> {
+                jb.setEnabled(false);
+                ArrayList<Integer> positions = model.makeGuess(jb.getText());
+                for(int pos : positions){
+                    panel.getBlanksArrayList().get(pos).setLetter(jb.getText());
+                    panel.getBlanksArrayList().get(pos).repaint();
+                }
+                if(positions.isEmpty()){
+                    panel.getHmPanel().incrementIncorrectGuesses();
+                    panel.getHmPanel().repaint();
+                }
+                
+                panel.getBlanksArrayList().get(1);
+                panel.getPoints().setText("Points: "+ Integer.toString(model.getGameScore()));
+                int incorrectCount = model.getIncorrectCount();
+                System.out.println("ic: " + incorrectCount);
+                int correctCount = model.getCorrectCount();
+                System.out.println("cc: " + correctCount);
+                System.out.println("wl: " + model.getWordLength());
+                if(incorrectCount > 5 || correctCount == model.getWordLength()){
+                    panel.getSkipButton().setEnabled(false);
+                    for(JButton button : panel.getKeyboardButtonArray()){
+                        button.setEnabled(false);
+                    }
+                    Timer timer = new Timer(1500, new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            rootController.changeVisibleCard(SwingProject.GAME_OVER_KEY);
+                        }
+                    });
+                    timer.setRepeats(false);
+                    timer.start();
+//                    rootController.changeVisibleCard(SwingProject.GAME_OVER_KEY);
+                }
+            });
+        }
+
         model.setScore(100);
                 
         panel.addAncestorListener(new AncestorListener(){
@@ -63,6 +107,7 @@ public class GameController{
         panel.getSkipButton().addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae) {
+                model.setScore(0);
                 rootController.changeVisibleCard(SwingProject.GAME_OVER_KEY);
             }
             
@@ -83,6 +128,17 @@ public class GameController{
 
     public void setModel(GameModel model) {
         this.model = model;
+    }
+    
+    public void resetGame(){
+        model.reset();
+        panel.getPoints().setText("Points: "+ Integer.toString(model.getGameScore()));
+        panel.addBlanks(model.getWordLength());
+        panel.getHmPanel().setIncorrectGuesses(0);
+        for(JButton jb : panel.getKeyboardButtonArray()){
+            jb.setEnabled(true);
+        }
+        panel.getSkipButton().setEnabled(true);
     }
     
     /*public String getWord() {

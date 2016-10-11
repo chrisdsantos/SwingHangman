@@ -15,11 +15,16 @@ package main.java.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.Timer;
+import javax.swing.event.AncestorEvent;
+import javax.swing.event.AncestorListener;
 import main.java.SwingProject;
 import main.java.model.GameOverModel;
 import main.java.view.GameOverPanel;
+import main.java.view.GamePanel;
 
 public class GameOverController {
+    private GameController gameControllerReference;
     private GameOverPanel panel;
     private GameOverModel model;
     private MainFrameController rootController;
@@ -44,6 +49,7 @@ public class GameOverController {
         panel.getMenuButton().addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae) {
+                gameControllerReference.resetGame();
                 rootController.changeVisibleCard(SwingProject.FUNCTION_KEY);
             }
         });
@@ -51,8 +57,25 @@ public class GameOverController {
         panel.getResetButton().addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae) {
+                gameControllerReference.resetGame();
                 rootController.changeVisibleCard(SwingProject.GAME_KEY);
             }
+        });
+        
+        panel.addAncestorListener(new AncestorListener(){
+            @Override
+            public void ancestorAdded(AncestorEvent event) {
+                panel.getScoreLabel().setText("Final Score: " + gameControllerReference.getModel().getScore());
+            }
+
+            @Override
+            public void ancestorRemoved(AncestorEvent event) {
+            }
+
+            @Override
+            public void ancestorMoved(AncestorEvent event) {
+            }
+            
         });
     }
     
@@ -71,4 +94,9 @@ public class GameOverController {
     public void setModel(GameOverModel model) {
         this.model = model;
     }
+
+    public void setGameControllerReference(GameController gameControllerReference) {
+        this.gameControllerReference = gameControllerReference;
+    }
+    
 }

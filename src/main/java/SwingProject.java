@@ -108,7 +108,7 @@ public class SwingProject {
                 new GameOverModel(),
                 mainFrameController
         );
-         highScoreController = new HighScoreController(
+        highScoreController = new HighScoreController(
                 new HighScorePanel(),
                 new HighScoreModel("HighScore", SCORE_NUMBER, Color.BLACK),
                 mainFrameController
@@ -120,12 +120,15 @@ public class SwingProject {
         mainFrameController.addPanel(creditsController.getPanel(),CREDITS_KEY);
         mainFrameController.addPanel(gameoverController.getPanel(),GAME_OVER_KEY);
         mainFrameController.addPanel(highScoreController.getPanel(),HIGH_SCORE_KEY);
+        
+        functionController.setGameControllerReference(gameController);
+        gameoverController.setGameControllerReference(gameController);
     }
     
     private void setupAndStart(){
         javax.swing.SwingUtilities.invokeLater(() -> {
             setup();
-            //mainFrameController.changeVisibleCard(GAME_KEY);
+//            mainFrameController.changeVisibleCard(GAME_KEY);
             mainFrameController.changeVisibleCard(SPLASH_KEY);
             mainFrameController.getFrame().setVisible(true);
         });

@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/omar/Documents/SwingHangman/src/main/java/controller/GameController.java</file>
-            <file>file:/home/omar/Documents/SwingHangman/src/main/java/SwingProject.java</file>
-            <file>file:/home/omar/Documents/SwingHangman/src/main/java/view/GamePanel.java</file>
-            <file>file:/home/omar/Documents/SwingHangman/src/main/java/view/FunctionPanel.java</file>
-            <file>file:/home/omar/Documents/SwingHangman/src/main/java/controller/FunctionController.java</file>
+            <file>file:/C:/Users/Omar/Documents/NetBeansProjects/SwingHangman/src/main/java/view/SplashPanel.java</file>
+            <file>file:/C:/Users/Omar/Documents/NetBeansProjects/SwingHangman/src/main/java/view/FunctionPanel.java</file>
+            <file>file:/C:/Users/Omar/Documents/NetBeansProjects/SwingHangman/src/main/java/view/GamePanel.java</file>
+            <file>file:/C:/Users/Omar/Documents/NetBeansProjects/SwingHangman/src/main/java/view/GameOverPanel.java</file>
         </group>
     </open-files>
 </project-private>

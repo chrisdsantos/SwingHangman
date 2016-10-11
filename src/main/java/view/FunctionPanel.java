@@ -33,7 +33,7 @@ public class FunctionPanel extends JPanel{
     private int currentSize; //1 for large, 2 for medium, 3 for small
     
     private JLabel imageLabel;
-    private static final Font BUTTON_FONT = new Font("Arial Black", Font.BOLD, 20);
+    private static final Font BUTTON_FONT = new Font("Impact", Font.PLAIN, 32);
     private static final Border BUTTON_BORDER = BorderFactory.
             createCompoundBorder(BorderFactory.createEmptyBorder(5,5,5,5),
                     BorderFactory.createBevelBorder(BevelBorder.RAISED,Color.WHITE,Color.GRAY));

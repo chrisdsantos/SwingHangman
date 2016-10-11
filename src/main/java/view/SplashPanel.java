@@ -27,14 +27,14 @@ public class SplashPanel extends JPanel {
         setLayout(new BorderLayout());
         
         titleLabel = new JLabel("Placeholder");
-        titleLabel.setFont(new java.awt.Font("Arial Black", 0, 36));
+        titleLabel.setFont(new java.awt.Font("Georgia", 0, 42));
         titleLabel.setForeground(new java.awt.Color(255, 255, 255));
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setBorder(javax.swing.BorderFactory.createEmptyBorder(25, 0, 0, 0));
         this.add(titleLabel, BorderLayout.PAGE_START);
         
         teamLabel = new JLabel("Placeholder");
-        teamLabel.setFont(new java.awt.Font("Arial", 0, 24));
+        teamLabel.setFont(new java.awt.Font("Georgia", 0, 36));
         teamLabel.setForeground(new java.awt.Color(255, 255, 255));
         teamLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         teamLabel.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 25, 0));
