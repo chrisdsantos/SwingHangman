@@ -1,8 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/*************************************************************** 
+* File: CreditsPanel.java 
+* Author: Marc Deaso 
+* Class: CS 245 - Programming Graphical User Interfaces
+* 
+* Assignment: Swing Project 1 
+* Date last modified: 10/11/2016
+* 
+* Purpose: This class is the view representation of the credits screen. The page
+* will display the names and ID numbers of the group members and have a back
+* button to return to the function screen.
+* 
+****************************************************************/
 package main.java.view;
 
 import java.awt.Color;
@@ -18,11 +26,9 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import static main.java.SwingProject.CONTRIBUTORS;
 
-/**
- *
- * @author Marc
- */
 public class CreditsPanel extends JPanel {
+    
+    //Declare instance variables.
     private javax.swing.JLabel creditsLabel;
     private javax.swing.JLabel[] membersLabels = new JLabel[CONTRIBUTORS.length];
     private JButton backButton;
@@ -32,14 +38,20 @@ public class CreditsPanel extends JPanel {
             createCompoundBorder(BorderFactory.createEmptyBorder(5,5,5,5),
                     BorderFactory.createBevelBorder(BevelBorder.RAISED,Color.WHITE,Color.GRAY));
     
-      public CreditsPanel() {
-        initComponents();
+    //CreditsPanel default constructor.
+    public CreditsPanel() {
+        this.initComponents();
     }
-      
-      public JButton getBackButton() {
+    
+    //Method: getBackButton
+    //Returns the JButton used to return to the function screen.
+    public JButton getBackButton() {
         return this.backButton;
     }
-      
+    
+    //Method: initComponents
+    //Primary method for the CreditsPanel class, sets up the panel with the
+    //GridBagLayout layout manager, places components
     private void initComponents() {
         this.setBackground(Color.BLACK);
 
@@ -63,6 +75,7 @@ public class CreditsPanel extends JPanel {
         gc.weighty = 1;
         this.add(creditsLabel, gc);
         
+        //Add new JLabel for each group member.
         for(int i = 0; i < CONTRIBUTORS.length; i++) {
             membersLabels[i] = new JLabel("Placeholder");
             membersLabels[i].setFont(new java.awt.Font("Arial", 0, 24));
@@ -106,20 +119,25 @@ public class CreditsPanel extends JPanel {
         gc.gridheight = CONTRIBUTORS.length + 1;
         gc.weightx = .35;
         //gc.weighty = ;
-        this.add(placeHolder, gc);
-        
+        this.add(placeHolder, gc); 
     }
-       
+     
+    //Method: setTitle
+    //Sets the text for the large title label on the panel.
     public void setTitle(String newTitle){
         this.creditsLabel.setText(newTitle);
     }
     
+    //Method: setMembers
+    //Sets the text for each of the members labels.
     public void setMembers(String[] newMembers){
         for(int i = 0; i < CONTRIBUTORS.length; i++){
                 this.membersLabels[i].setText(newMembers[i]);
         }
     }
     
+    //Method: setBackgroundColor
+    //Gives public access to the panels background color setting.
     public void setBackgroundColor(Color newColor){
         this.setBackground(newColor);
     }
