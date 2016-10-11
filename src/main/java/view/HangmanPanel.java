@@ -1,8 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/***************************************************************
+* file: HangmanPanel.java
+*           Omar Rodriguez
+* class: CS 245 - Programming Graphical User Interfaces
+*
+* assignment: Swing Project v1.0
+* date last modified: 10/11/2016
+*
+* purpose: This is the view component for displaying a hangman game
+*
+****************************************************************/ 
 package main.java.view;
 
 import java.awt.BasicStroke;
@@ -10,10 +16,6 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
-/**
- *
- * @author Omar
- */
 public class HangmanPanel extends JPanel{
     int incorrectCount;
     
@@ -21,15 +23,21 @@ public class HangmanPanel extends JPanel{
         incorrectCount = 0;
     }
 
+    //method: incrementIncorrectGuesses
+    //purpose: increase the number of incorrect guesses from the player
     public void incrementIncorrectGuesses() {
         incorrectCount++;
     }
 
+    //method: setIncorrectGuesses
+    //purpose: manually setting number of incorrect guesses
     public void setIncorrectGuesses(int incorrectGuesses) {
         this.incorrectCount = incorrectGuesses;
     }
     
-    
+    //method: paint
+    //purpose: paint the panel with the features of a hangman game, depending on 
+    // how many incorrect guesses by the player
     @Override
     public void paint(Graphics g){
         super.paint(g);

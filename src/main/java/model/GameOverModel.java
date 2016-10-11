@@ -1,5 +1,5 @@
 /*************************************************************** 
-*file: GameOverController.java 
+*file: GameOverModel.java 
 * author: Jazmin Guerrero, Omar Rodriguez, Marc Deaso 
 * class: CS 245 - Programming Graphical User Interfaces
 * 
@@ -25,34 +25,38 @@ public class GameOverModel implements PanelModel {
         menuButtonText = "Main Menu";
     }
     
+    //method: getScore
+    //purpose: get final game score
     public int getScore(){
         return score;
     }
     
+    //method: setScore
+    //purpose: set final game score
     public void setScore(int gameScore) {
         this.score = gameScore;
     }
-    
-    public String getNewGameText() {
-        return this.newGameButtonText;
-    }
-    
-    public String getMenuText() {
-        return this.menuButtonText;
-    }
 
+    //method: getNewGameButtonText
+    //purpose: return text that belongs on the new game button
     public String getNewGameButtonText() {
         return newGameButtonText;
     }
-
+    
+    //method: setNewGameButtonText
+    //purpose: set text that belongs on new game button
     public void setNewGameButtonText(String newGameButtonText) {
         this.newGameButtonText = newGameButtonText;
     }
 
+    //method: getMenuButtonText
+    //purpose: return text that belongs on the 'back to menu' button
     public String getMenuButtonText() {
         return menuButtonText;
     }
 
+    //method: setMenuButtonText
+    //purpose: set text that belongs on the 'back to menu' button
     public void setMenuButtonText(String menuButtonText) {
         this.menuButtonText = menuButtonText;
     }

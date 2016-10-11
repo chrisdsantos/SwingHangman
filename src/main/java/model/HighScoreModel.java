@@ -1,4 +1,15 @@
-
+/***************************************************************
+* file: HighScoreModel.java
+* author: Nahid Enayatzadeh
+* class: CS 245 - Programming Graphical User Interfaces
+*
+* assignment: Swing Project v1.0
+* date last modified: 10/11/2016
+*
+* purpose: This is the model that contains the business logic for the
+* highscore screen
+*
+****************************************************************/ 
 package main.java.model;
 
 import java.awt.Color;

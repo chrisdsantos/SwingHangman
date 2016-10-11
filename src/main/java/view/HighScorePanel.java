@@ -1,4 +1,14 @@
-
+/***************************************************************
+* file: HighScorePanel.java
+* author: Nahid Enayatzadeh
+* class: CS 245 - Programming Graphical User Interfaces
+*
+* assignment: Swing Project v1.0
+* date last modified: 10/11/2016
+*
+* purpose: This is the view for an application's highscore screen
+*
+****************************************************************/
 package main.java.view;
 
 import java.awt.Color;

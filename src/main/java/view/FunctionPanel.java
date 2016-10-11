@@ -54,6 +54,8 @@ public class FunctionPanel extends JPanel{
         initComponents();
     }
               
+    //method: initComponents
+    //purpose: create/initialize view components of a function screeen
     private void initComponents() {
         setBackground(Color.BLACK);
         
@@ -110,6 +112,8 @@ public class FunctionPanel extends JPanel{
         this.add(buttonPanel, gridConstraints);
     }
     
+    //method: channgeImageSize
+    //purpose: set function panel image
     public void changeImageSize(int size){
         if(size != currentSize){
             if(size == 1){
@@ -125,14 +129,20 @@ public class FunctionPanel extends JPanel{
         }
     }
     
+    //method getPlayButton
+    //purpose: return a reference to this view's first button
     public JButton getPlayButton() {
         return playButton;
     }
 
+    //method gethighScoresButton
+    //purpose: return a reference to this view's second button
     public JButton getHighScoresButton() {
         return highScoresButton;
     }
-
+    
+    //method getCreditsButton
+    //purpose: return a reference to this view's third button
     public JButton getCreditsButton() {
         return creditsButton;
     }

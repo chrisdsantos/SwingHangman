@@ -1,4 +1,15 @@
-
+/***************************************************************
+* file: HighScoreController.java
+* author: Nahid Enayatzadeh
+* class: CS 245 - Programming Graphical User Interfaces
+*
+* assignment: Swing Project v1.0
+* date last modified: 10/11/2016
+*
+* purpose: This is the controller that controls the communication
+* between the highscore screen model and view
+*
+****************************************************************/ 
 package main.java.controller;
 
 import java.awt.event.ActionEvent;
@@ -7,11 +18,6 @@ import main.java.SwingProject;
 import main.java.model.HighScoreModel;
 import main.java.view.HighScorePanel;
 
-//Class: HighScoreController
-/*Porpuse: delcareing panel, model, controller as privata and set up all geter, 
- *seter methods to having access to variables and Modyfing variables like
- *title of page, Members of group,the color of back ground page and back buton
-*/
 public class HighScoreController {
     private HighScorePanel panel;
     private HighScoreModel model;

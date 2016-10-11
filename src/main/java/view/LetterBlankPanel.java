@@ -1,8 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/***************************************************************
+* file: LetterBlankPanel.java
+*           Omar Rodriguez
+* class: CS 245 - Programming Graphical User Interfaces
+*
+* assignment: Swing Project v1.0
+* date last modified: 10/11/2016
+*
+* purpose: This is the view component for displaying the blanks of a hangman game
+*
+****************************************************************/ 
 package main.java.view;
 
 import java.awt.BasicStroke;
@@ -11,10 +17,6 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
-/**
- *
- * @author Omar
- */
 public class LetterBlankPanel extends JPanel{
     private String letter;
     
@@ -22,6 +24,9 @@ public class LetterBlankPanel extends JPanel{
         letter = "";
     }
     
+    //method: paint
+    //purpose: paint the panel with the blanks of a hangman game, depending on 
+    // the length of the given word
     @Override
     public void paint(Graphics g){
         super.paint(g);
@@ -38,10 +43,14 @@ public class LetterBlankPanel extends JPanel{
         
     }
 
+    //method getLetter
+    //purpose: return letter currently painted on this panel
     public String getLetter() {
         return letter;
     }
 
+    //method: setLetter
+    //purpose: set letter to be painted to panel
     public void setLetter(String letter) {
         this.letter = letter;
     }

@@ -1,28 +1,28 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/***************************************************************
+* file: GamePanel.java
+* author:   Christopher Santos
+*           Omar Rodriguez
+* class: CS 245 - Programming Graphical User Interfaces
+*
+* assignment: Swing Project v1.0
+* date last modified: 10/11/2016
+*
+* purpose: This is the view component for the game screen
+*
+****************************************************************/ 
 package main.java.view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.awt.Graphics;
 import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-//import javax.swing.JTextField;
 
-/**
- *
- * @author Chris
- */
 public class GamePanel extends JPanel{
     private JButton skipButton;
     private JLabel gameNameLabel;
@@ -31,7 +31,6 @@ public class GamePanel extends JPanel{
     private JPanel keyboard;
     private HangmanPanel hmPanel;
     JPanel blanksHolder;
-//    private 
     private JButton[] keyboardButtonArray;
     private ArrayList<LetterBlankPanel> blanksArrayList;
     
@@ -94,63 +93,64 @@ public class GamePanel extends JPanel{
         
         this.add(bottomContainer, BorderLayout.PAGE_END);
     }
-    
-    public void paintComponent(Graphics g){
-        super.paintComponent(g);
-//        g.drawOval(300, 300, 50, 50);
-    }
-    
-    public Dimension getPreferredSize(){
-        return new Dimension(100,100);
-    }
-    
+
+    //method: setDateTime
+    //purpose; set date label text
     public void setDateTime(String dateTime){
         dateTimeLabel.setText(dateTime);
     }
 
+    //method: getSkipButton
+    //purpose: return reference to skip button
     public JButton getSkipButton() {
         return skipButton;
     }
-
-    public void setSkipButton(JButton skipButton) {
-        this.skipButton = skipButton;
-    }
-
+    
+    //method: getKeyboardButtonArray
+    //purpose: return reference to array of key buttons
     public JButton[] getKeyboardButtonArray() {
         return keyboardButtonArray;
     }
 
+    //method: getPoints
+    //purpose return reference to points label
     public JLabel getPoints() {
         return points;
     }
 
+    //method: setPoints
+    //purpose: set points label
     public void setPoints(JLabel points) {
         this.points = points;
     }
 
+    //method: getGameNameLabel
+    //purpose return reference to game name label
     public JLabel getGameNameLabel() {
         return gameNameLabel;
     }
-
-    public void setGameNameLabel(JLabel gameNameLabel) {
-        this.gameNameLabel = gameNameLabel;
-    }
-
+    
+    //method: getBlanksArrayList
+    //purpose return reference to arraylist containing references to line blank 
+    // panels
     public ArrayList<LetterBlankPanel> getBlanksArrayList() {
         return blanksArrayList;
     }
 
+    //method: addBlanks
+    //purpose: add the desired number of blanks to the blanks panel
     public void addBlanks(int numberOfBlanks){
         blanksHolder.removeAll();
         blanksArrayList.removeAll(blanksArrayList);
         for(int i = 0; i<numberOfBlanks; i++){
             LetterBlankPanel blank = new LetterBlankPanel();
-//            blank.setPreferredSize(new Dimension(50, 20));
             blanksHolder.add(blank);
             blanksArrayList.add(blank);
         }
     }
 
+    //method: getHmPanel
+    //purpose: return reference to HangmanPanel
     public HangmanPanel getHmPanel() {
         return hmPanel;
     }

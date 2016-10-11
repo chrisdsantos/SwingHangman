@@ -1,8 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/***************************************************************
+* file: GameController.java
+* author:   Christopher Santos
+*           Omar Rodriguez
+* class: CS 245 - Programming Graphical User Interfaces
+*
+* assignment: Swing Project v1.0
+* date last modified: 10/11/2016
+*
+* purpose: This is the controller that controls the communication
+* between the game screen model and view
+*
+****************************************************************/ 
 package main.java.controller;
 
 import java.awt.event.ActionEvent;
@@ -16,11 +24,6 @@ import main.java.SwingProject;
 import main.java.model.GameModel;
 import main.java.view.GamePanel;
 
-
-/**
- *
- * @author Chris
- */
 public class GameController{
     private GamePanel panel;
     private GameModel model;
@@ -33,6 +36,9 @@ public class GameController{
         setup();
     }
     
+    //method: setup
+    //purpose: set contents of model to be reflected in the view, as well as
+    // set button listeners, and activates time label
     private void setup(){
         panel.getPoints().setText("Points: "+ Integer.toString(model.getGameScore()));
         panel.getGameNameLabel().setText("Hangman");
@@ -52,7 +58,6 @@ public class GameController{
                     panel.getHmPanel().repaint();
                 }
                 
-                panel.getBlanksArrayList().get(1);
                 panel.getPoints().setText("Points: "+ Integer.toString(model.getGameScore()));
                 int incorrectCount = model.getIncorrectCount();
                 int correctCount = model.getCorrectCount();
@@ -110,22 +115,20 @@ public class GameController{
         });
     }
 
+    //method: getPanel
+    //purpose: return panel associated with this controller
     public GamePanel getPanel() {
         return panel;
     }
 
-    public void setPanel(GamePanel panel) {
-        this.panel = panel;
-    }
-
+    //method: getModel
+    //purpose: return model associated with this controller
     public GameModel getModel() {
         return model;
     }
-
-    public void setModel(GameModel model) {
-        this.model = model;
-    }
     
+    //method: resetGame
+    //purpose: reset associated view and controller for a new game
     public void resetGame(){
         model.reset();
         panel.getPoints().setText("Points: "+ Integer.toString(model.getGameScore()));
@@ -136,10 +139,4 @@ public class GameController{
         }
         panel.getSkipButton().setEnabled(true);
     }
-    
-    /*public String getWord() {
-        String word = model.getRandomWord();
-        return word;
-    }*/
-    
 }

@@ -1,10 +1,10 @@
 /*************************************************************** 
-*file: GameOverController.java 
+*file: GameOverPanel.java 
 * author: Jazmin Guerrero, Omar Rodriguez, Marc Deaso 
 * class: CS 245 - Programming Graphical User Interfaces
 * 
 * 
-*assignment: Swing Project 1 
+* assignment: Swing Project 1 
 * date last modified: 10/06/2016
 * 
 * purpose: This class is the view representation of a gameover screen
@@ -89,42 +89,62 @@ public class GameOverPanel extends JPanel {
         this.add(button2);
     }
 
+    //method: getResetButton
+    //purpose: return reference to reset JButton
     public JButton getResetButton() {
         return this.button1;
     }
     
+    //method: getMenuButton
+    //purpose: return reference to menu JButton
     public JButton getMenuButton() {
         return this.button2;
     }
     
+    //method: getGameOverLabel
+    //purpose: return reference to main header label
     public JLabel getGameOverLabel() {
         return gameOverLabel;
     }
 
+    //method: setGameOverLabel
+    //purpose: set main header label
     public void setGameOverLabel(JLabel gameOverLabel) {
         this.gameOverLabel = gameOverLabel;
     }
 
+    //method: getScoreLabel
+    //purpose: get reference to score label
     public JLabel getScoreLabel() {
         return scoreLabel;
     }
 
+    //method setScoreLabel
+    //purpose set score label
     public void setScoreLabel(JLabel scoreLabel) {
         this.scoreLabel = scoreLabel;
     }
-
+    
+    //method getButton1
+    //purpose: get reference to first button on gameover panel
     public JButton getButton1() {
         return button1;
     }
 
+    //method: setButton1
+    //purpose: set first button
     public void setButton1(JButton button1) {
         this.button1 = button1;
     }
 
+    //method; getButton2
+    //purpose: return reference to second button
     public JButton getButton2() {
         return button2;
     }
 
+    //method: setButton2
+    //purpose: set second button
     public void setButton2(JButton button2) {
         this.button2 = button2;
     }

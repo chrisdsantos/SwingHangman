@@ -1,8 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/***************************************************************
+* file: GameModel.java
+* author:   Christopher Santos
+*           Omar Rodriguez
+* class: CS 245 - Programming Graphical User Interfaces
+*
+* assignment: Swing Project v1.0
+* date last modified: 10/11/2016
+*
+* purpose: This is the model component for the game screen
+*
+****************************************************************/ 
 package main.java.model;
 
 import java.io.File;
@@ -13,17 +20,12 @@ import java.util.Random;
 import java.util.Scanner;
 import javax.swing.ImageIcon;
 
-/**
- *
- * @author Chris
- */
 public class GameModel implements PanelModel{
     private int incorrectCount;
     private int correctCount;
     private LocalDateTime dateTime;
     private int gameScore;
     private int[] lettersUsed;
-//    private int guesses;
     private ArrayList<String> dictionary;
     private Scanner scan;
     private String randomWord;
@@ -33,7 +35,6 @@ public class GameModel implements PanelModel{
     }
     
     public GameModel(String fileName){
-        //backgroundColor = color;
         dictionary = new ArrayList<String>();
         this.readDictionary(fileName);
         randomWord = selectRandomWord();
@@ -43,6 +44,8 @@ public class GameModel implements PanelModel{
         gameScore = 100;
     }
     
+    //method: reset
+    //purpose: reset this game model for a new game
     public void reset(){
         randomWord = selectRandomWord();
         randomWordCharArray = randomWord.toCharArray();
@@ -57,6 +60,9 @@ public class GameModel implements PanelModel{
         this.dateTime = LocalDateTime.now();
     }
     
+    //method: makeGuess
+    //purpose: check if user guess is in string. Return a
+    // list of positions if character is found in string
     public ArrayList<Integer> makeGuess(String guess){
         char guessChar = guess.charAt(0);
         ArrayList<Integer> positions = new ArrayList<>();
@@ -94,18 +100,6 @@ public class GameModel implements PanelModel{
         return gameScore;
     }
 
-//    public int[] setLettersUsed(){
-//        
-//    }
-    
-    public int[] getLettersUsed(){
-        return lettersUsed;
-    }
-    
-    public String getRandomWord() {
-        return randomWord;
-    }
-    
     //name: readDictionary()
     //purpose: reads a given file that contains words for game (dictionary)
     private void readDictionary(String dict) {
@@ -128,43 +122,33 @@ public class GameModel implements PanelModel{
         Random rand = new Random();
         return this.dictionary.get(rand.nextInt(this.dictionary.size()));
     }
-    
-    
-    
-//    //method: updateImage
-//    //purpose: updates image whenever there is a wrong guess
-//    public void updateImage(){
-//        int imageNumber = 6 - getGuessesRemaining();
-//        for(int i=1; i<8; i++){
-//            if(imageNumber == i){
-//                ImageIcon image = new ImageIcon(getClass().getResource("hangman_gfx/"+i+".jpg"));
-////                panel.graphicsPanel.setIcon(image);
-//            }
-//        }
-//    }
-//    
-//    //method: getGuessesRemaining()
-//    //purpose: returns number of guesses remaining
-//    public int getGuessesRemaining(){
-//        return guesses;
-//    }
 
+    //method: getIncorrectCount
+    //purpose: return number of incorrect guesses made so far
     public int getIncorrectCount() {
         return incorrectCount;
     }
 
+    //method: getCorrectCount
+    //purpose: return number of correct guesses made so far
     public int getCorrectCount() {
         return correctCount;
     }
 
+    //method: getGameScore
+    //purpose: return current score
     public int getGameScore() {
         return gameScore;
     }
 
+    //method: setGameScore
+    //purpose: set current game score
     public void setGameScore(int gameScore) {
         this.gameScore = gameScore;
     }
     
+    //method: getWordLength
+    //purpose: return length of current word
     public int getWordLength(){
         return randomWord.length();
     }
