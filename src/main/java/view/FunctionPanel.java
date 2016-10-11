@@ -1,8 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/***************************************************************
+* file: FunctionPanel.java
+* author: Omar Rodriguez
+* class: CS 245 - Programming Graphical User Interfaces
+*
+* assignment: Swing Project v1.0
+* date last modified: 10/11/2016
+*
+* purpose: This is the view for an application's splash screen
+*
+****************************************************************/
 package main.java.view;
 
 import java.awt.Color;
@@ -18,10 +24,6 @@ import javax.swing.JPanel;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 
-/**
- *
- * @author Omar
- */
 public class FunctionPanel extends JPanel{
     private JButton playButton;
     private JButton highScoresButton;
@@ -51,34 +53,7 @@ public class FunctionPanel extends JPanel{
         }
         initComponents();
     }
-
-    public JButton getPlayButton() {
-        return playButton;
-    }
-
-    public JButton getHighScoresButton() {
-        return highScoresButton;
-    }
-
-    public JButton getCreditsButton() {
-        return creditsButton;
-    }
-    
-    public void changeImageSize(int size){
-        if(size != currentSize){
-            if(size == 1){
-                imageLabel.setIcon(large);
-                currentSize = 1;
-            } else if (size == 2){
-                imageLabel.setIcon(medium);
-                currentSize = 2;
-            } else {
-                imageLabel.setIcon(small);
-                currentSize = 3;
-            }
-        }
-    }
-                        
+              
     private void initComponents() {
         setBackground(Color.BLACK);
         
@@ -133,5 +108,32 @@ public class FunctionPanel extends JPanel{
         gridConstraints.weightx = .33;
         gridConstraints.weighty = .33;
         this.add(buttonPanel, gridConstraints);
+    }
+    
+    public void changeImageSize(int size){
+        if(size != currentSize){
+            if(size == 1){
+                imageLabel.setIcon(large);
+                currentSize = 1;
+            } else if (size == 2){
+                imageLabel.setIcon(medium);
+                currentSize = 2;
+            } else {
+                imageLabel.setIcon(small);
+                currentSize = 3;
+            }
+        }
+    }
+    
+    public JButton getPlayButton() {
+        return playButton;
+    }
+
+    public JButton getHighScoresButton() {
+        return highScoresButton;
+    }
+
+    public JButton getCreditsButton() {
+        return creditsButton;
     }
 }

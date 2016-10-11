@@ -33,19 +33,15 @@ import main.java.controller.*;
 import main.java.model.*;
 import main.java.view.*;
 
-/**
- *
- * @author Omar
- */
 public class SwingProject {
     public static final String PROJECT_NAME = "CS 245 - Swing Project v1";
     public static final String DICTIONARY = "src/main/resources/dictionary.txt";
     public static final String CONTRIBUTORS[] = {
-        "Omar Rodriguez, #",
-        "Nahid Enayatzadeh , #",
+        "Omar Rodriguez, 008796203",
+        "Nahid Enayatzadeh, 010164622",
         "Marc Deaso, 011179285",
         "Christopher Santos, #",
-        "Jazmin Guerrero, #"};
+        "Jazmin Guerrero, 009007193"};
     
     public static final String SCORE_NUMBER[] = {
         "Omar Rodriguez..00",
@@ -73,6 +69,9 @@ public class SwingProject {
     private SwingProject(){
     }
     
+    //method: setup
+    //purpose: Create the various panels (game screens) for our game
+    // and attach them to the main frame.
     private void setup(){
         mainFrameController = new MainFrameController(
                 new MainFrameModel(PROJECT_NAME,600,400,null,EXIT_ON_CLOSE), 
@@ -125,18 +124,19 @@ public class SwingProject {
         gameoverController.setGameControllerReference(gameController);
     }
     
+    //method: setupAndStart
+    //purpose: call setup method, switch to first application screen (splash)
+    //then set the whole thing visible
     private void setupAndStart(){
         javax.swing.SwingUtilities.invokeLater(() -> {
             setup();
-//            mainFrameController.changeVisibleCard(GAME_KEY);
             mainFrameController.changeVisibleCard(SPLASH_KEY);
             mainFrameController.getFrame().setVisible(true);
         });
     }
 
-    /**
-     * @param args the command line arguments
-     */
+    //method: main
+    //purpose: the entry-point to our application
     public static void main(String[] args) {
         SwingProject game = new SwingProject();
         game.setupAndStart();

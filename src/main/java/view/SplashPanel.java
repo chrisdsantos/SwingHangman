@@ -1,8 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/***************************************************************
+* file: SplashPanel.java
+* author: Omar Rodriguez
+* class: CS 245 - Programming Graphical User Interfaces
+*
+* assignment: Swing Project v1.0
+* date last modified: 10/11/2016
+*
+* purpose: This is the view for an application's splash screen
+*
+****************************************************************/
 package main.java.view;
 
 import java.awt.BorderLayout;
@@ -10,10 +16,6 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-/**
- *
- * @author Omar
- */
 public class SplashPanel extends JPanel {
     
     private javax.swing.JLabel titleLabel;
@@ -22,7 +24,9 @@ public class SplashPanel extends JPanel {
     public SplashPanel() {
         initComponents();
     }
-                        
+               
+    //method: initComponents
+    //purpose: create view components for a splash screen
     private void initComponents() {
         setLayout(new BorderLayout());
         
@@ -43,14 +47,20 @@ public class SplashPanel extends JPanel {
         setBackground(Color.BLACK);
     }             
     
+    //method: setTitle
+    //purpose: set title label text
     public void setTitle(String newTitle){
         titleLabel.setText(newTitle);
     }
     
+    //method: setTeam
+    //purpose: set team label text
     public void setTeam(String newTeam){
         teamLabel.setText("By: Team " + newTeam);
     }
     
+    //method: setBackgroundColor
+    //purpose: set background color
     public void setBackgroundColor(Color newColor){
         setBackground(newColor);
     }                 

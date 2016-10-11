@@ -1,8 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/***************************************************************
+* file: FunctionController.java
+* author: Omar Rodriguez
+* class: CS 245 - Programming Graphical User Interfaces
+*
+* assignment: Swing Project v1.0
+* date last modified: 10/11/2016
+*
+* purpose: This is the controller that controls the communication
+* between the function screen model and view
+*
+****************************************************************/ 
 package main.java.controller;
 
 import java.awt.event.ActionEvent;
@@ -13,11 +20,6 @@ import main.java.model.FunctionModel;
 import main.java.view.FunctionPanel;
 import main.java.view.GamePanel;
 
-
-/**
- *
- * @author Omar
- */
 public class FunctionController {
     private GameController gameControllerReference;
     private FunctionPanel panel;
@@ -30,6 +32,11 @@ public class FunctionController {
         this.rootController = rootController;
         setup();
     }
+    
+    //method: setup
+    //purpose: set contents of model to be reflected in the view, as well as
+    // sets a listener to change the size of the image depending on the size
+    // of the panel. Also adds listeners to buttons to switch screens.
     private void setup(){
         panel.setBackground(model.getBackgroundColor());
         panel.getPlayButton().setText(model.getButton1());
@@ -73,10 +80,15 @@ public class FunctionController {
         });
     }
     
+    //method: setGameControllerReference
+    //purpose: used to set a reference to the game screen controller, 
+    // used in order to reset the game.
     public void setGameControllerReference(GameController gameControllerReference) {
         this.gameControllerReference = gameControllerReference;
     }
     
+    //method: getPanel
+    //purpose: return the panel associated with this screen (FunctionPanel)
     public FunctionPanel getPanel(){
         return panel;
     }

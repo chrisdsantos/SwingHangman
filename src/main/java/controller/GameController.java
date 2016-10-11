@@ -55,10 +55,7 @@ public class GameController{
                 panel.getBlanksArrayList().get(1);
                 panel.getPoints().setText("Points: "+ Integer.toString(model.getGameScore()));
                 int incorrectCount = model.getIncorrectCount();
-                System.out.println("ic: " + incorrectCount);
                 int correctCount = model.getCorrectCount();
-                System.out.println("cc: " + correctCount);
-                System.out.println("wl: " + model.getWordLength());
                 if(incorrectCount > 5 || correctCount == model.getWordLength()){
                     panel.getSkipButton().setEnabled(false);
                     for(JButton button : panel.getKeyboardButtonArray()){
@@ -72,7 +69,6 @@ public class GameController{
                     });
                     timer.setRepeats(false);
                     timer.start();
-//                    rootController.changeVisibleCard(SwingProject.GAME_OVER_KEY);
                 }
             });
         }

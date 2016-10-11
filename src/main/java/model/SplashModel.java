@@ -1,8 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/***************************************************************
+* file: SplashModel.java
+* author: Omar Rodriguez
+* class: CS 245 - Programming Graphical User Interfaces
+*
+* assignment: Swing Project v1.0
+* date last modified: 10/11/2016
+*
+* purpose: This is the model that contains the business logic for the
+* splash screen
+*
+****************************************************************/ 
 package main.java.model;
 
 import java.awt.Color;
@@ -31,37 +38,51 @@ public class SplashModel implements PanelModel{
         splashTime = time;
     }
 
+    //method: getSplashTitle
+    //purpose: get value for top header
     public String getSplashTitle() {
         return splashTitle;
     }
 
+    //method: setSplashTitle
+    //purpose: set value for top header
     public void setSplashTitle(String splashTitle) {
         this.splashTitle = splashTitle;
     }
 
+    //method: getTeamName
+    //purpose: get value for bottom header
     public String getTeamName() {
         return teamName;
     }
-
+    
+    //method: setTeamName
+    //purpose: set value for bottom header
     public void setTeamName(String teamName) {
         this.teamName = teamName;
     }
 
+    //method: getBackgroundColor
+    //purpose: get value for background color
     public Color getBackgroundColor() {
         return backgroundColor;
     }
 
+    //method: setBackgroundColor
+    //purpose: set value for background color
     public void setBackgroundColor(Color backgroundColor) {
         this.backgroundColor = backgroundColor;
     }
 
+    //method: getSplashTime
+    //purpose: get value for length of splash screen
     public int getSplashTime() {
         return splashTime;
     }
 
+    //method: setSplashTime
+    //purpose: set value for length of splash screen
     public void setSplashTime(int splashTime) {
         this.splashTime = splashTime;
     }
-
-
 }

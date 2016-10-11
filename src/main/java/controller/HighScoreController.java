@@ -20,9 +20,7 @@ public class HighScoreController {
     public HighScoreController(HighScorePanel panel, HighScoreModel model, MainFrameController rootController) {
         this.panel = panel;
         this.model = model;
-        this.rootController = rootController;
-        System.out.println("test");
-        
+        this.rootController = rootController;       
         this.setup();
     }
     
