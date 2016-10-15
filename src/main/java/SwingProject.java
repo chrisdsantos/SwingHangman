@@ -55,12 +55,14 @@ public class SwingProject {
     public static final String CREDITS_KEY = "creditsscreen";
     public static final String GAME_KEY = "gamescreen";
     public static final String GAME_OVER_KEY = "gameoverscreen";
+    public static final String CIRCLE_GAME_KEY = "circlegamescreen";
 
     private MainFrameController mainFrameController;
     
     private SplashController splashController;
     private FunctionController functionController;
     private GameController gameController;
+    private CircleGameController circleGameController;
     private CreditsController creditsController;
     private GameOverController gameoverController;
     private HighScoreController highScoreController;
@@ -95,6 +97,8 @@ public class SwingProject {
                 mainFrameController
         );
         
+        circleGameController = new CircleGameController(new CircleGamePanel(), mainFrameController);
+        
         creditsController = new CreditsController(
                 new CreditsPanel(),
                 new CreditsModel("Credits", CONTRIBUTORS, Color.BLACK),
@@ -115,6 +119,7 @@ public class SwingProject {
         mainFrameController.addPanel(splashController.getPanel(),SPLASH_KEY);
         mainFrameController.addPanel(functionController.getPanel(),FUNCTION_KEY);
         mainFrameController.addPanel(gameController.getPanel(),GAME_KEY);
+        mainFrameController.addPanel(circleGameController.getPanel(), GAME_KEY);
         mainFrameController.addPanel(creditsController.getPanel(),CREDITS_KEY);
         mainFrameController.addPanel(gameoverController.getPanel(),GAME_OVER_KEY);
         mainFrameController.addPanel(highScoreController.getPanel(),HIGH_SCORE_KEY);

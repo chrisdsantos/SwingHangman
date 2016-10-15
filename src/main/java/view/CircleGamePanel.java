@@ -5,6 +5,7 @@
  */
 package main.java.view;
 
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 /**
@@ -12,5 +13,7 @@ import javax.swing.JPanel;
  * @author Omar
  */
 public class CircleGamePanel extends JPanel{
-    
+    public JButton getRedButton(){
+        
+    }
 }
