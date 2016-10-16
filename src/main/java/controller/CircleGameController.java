@@ -48,7 +48,7 @@ public class CircleGameController {
                     if(panel.getCurrentRound() >= 5){
                         rootController.changeVisibleCard(SwingProject.GAME_OVER_KEY);
                     } else {
-                        panel.incrementRount();
+                        panel.incrementRound();
                     }
                 }
                 

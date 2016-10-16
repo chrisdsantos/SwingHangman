@@ -20,7 +20,21 @@ public class CircleGamePanel extends JPanel{
     private int circleGameScore;
     private int currentRound;
     private String currentGoal;
-    private final String[] COLOR_NAMES = {"RED", "GREEN", "BLUE", "YELLOW", "PURPLE"};
+    private final ColorButton[] buttons = {
+        getRedButton(), 
+        getGreenButton(), 
+        getBlueButton(), 
+        getYellowButton(), 
+        getPurpleButton()
+    };
+    private final String[] COLOR_NAMES = {
+        "RED", 
+        "GREEN", 
+        "BLUE", 
+        "YELLOW", 
+        "PURPLE"
+    };
+    public Object getCurrentGoal;//??
     
     public CircleGamePanel(){
         circleGameScore = 0;
@@ -58,58 +72,75 @@ public class CircleGamePanel extends JPanel{
     public void setCurrentRound(int round){
         currentRound = round;
     }
-    
+
+    //name: increaseScore
+    //purpose: adds value s to current score  
     public void increaseScore(int s){
         circleGameScore+=s;
     }
-    
+
+    //name: setRandomGoal
+    //purpose: sets the color goal randomly    
     public void setRandomGoal(){
         Random rand = new Random();
-        int n = rand.nextInt(5);
+        int randomColorName = rand.nextInt(5);
         //randomize text
-        String buttonColorName = COLOR_NAMES[n];
-        //randomize color
-        
+        String buttonColorName = COLOR_NAMES[randomColorName];
+        //randomize text color
+        int randomColor = rand.nextInt(5);
         //update color goal
-        currentGoal = COLOR_NAMES[n];
+        currentGoal = COLOR_NAMES[randomColorName];
     }
-    
+
+    //name: getCurrentGoal
+    //purpose: retrieves current color needed to score    
     public String getCurrentGoal(){
         return currentGoal;
     }
-    
+
+    //name: getColorButtons
+    //purpose: retrieves all buttons packaged into array 
     public ColorButton[] getColorButtons(){
-        ColorButton[] b = {getRedButton(), getGreenButton(), getBlueButton(), getYellowButton(), getPurpleButton()};
-        return b;
+        return buttons;
     }
-    
+
+    //name: getRedButton
+    //purpose: retrieves red button data
     public ColorButton getRedButton(){
         ColorButton b = new ColorButton();
-        String colorName = COLOR_NAMES[0];
+        b.setColor(COLOR_NAMES[0]);
         return b;
     }
-    
+
+    //name: getGreenButton
+    //purpose: retrieves green button data
     public ColorButton getGreenButton(){
         ColorButton b = new ColorButton();
-        String colorName = COLOR_NAMES[1];
+        b.setColor(COLOR_NAMES[1]);
         return b;  
     }
     
+    //name: getBlueButton
+    //purpose: retrieves blue button data
     public ColorButton getBlueButton(){
         ColorButton b = new ColorButton();
-        String colorName = COLOR_NAMES[2];
-        return b;  
+        b.setColor(COLOR_NAMES[2]);
+        return b;
     }
-        
+
+    //name: getYellowButton
+    //purpose: retrieves yellow button data
     public ColorButton getYellowButton(){
         ColorButton b = new ColorButton();
-        String colorName = COLOR_NAMES[3];
+        b.setColor(COLOR_NAMES[3]);
         return b; 
     }
-    
+
+    //name: getPurpleButton
+    //purpose: retrieves purple button data
     public ColorButton getPurpleButton(){
         ColorButton b = new ColorButton();
-        String colorName = COLOR_NAMES[4];
+        b.setColor(COLOR_NAMES[4]);
         return b;
     }
 }

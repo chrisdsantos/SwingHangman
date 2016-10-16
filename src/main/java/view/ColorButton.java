@@ -13,4 +13,16 @@ import javax.swing.JButton;
  */
 public class ColorButton extends JButton{
     private String color;
+    
+    public ColorButton(){
+        color = "NOT SET";
+    }
+    
+    public String getColor(){
+        return color;
+    }
+    
+    public void setColor(String c){
+        color = c;
+    }
 }
