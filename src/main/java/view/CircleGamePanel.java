@@ -5,10 +5,12 @@
  */
 package main.java.view;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
-import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -16,29 +18,64 @@ import javax.swing.JPanel;
  * @author Chris, Omar
  */
 public class CircleGamePanel extends JPanel{
+    private JLabel goalLabel;
+    private JLabel dateLabel;
+    private ColorButton redButton;
+    private ColorButton greenButton;
+    private ColorButton blueButton;
+    private ColorButton yellowButton;
+    private ColorButton purpleButton;
+    private ColorButton[] colorButtons;
+    
     private LocalDateTime dateTime;
     private int circleGameScore;
     private int currentRound;
     private String currentGoal;
-    private final ColorButton[] buttons = {
-        getRedButton(), 
-        getGreenButton(), 
-        getBlueButton(), 
-        getYellowButton(), 
-        getPurpleButton()
-    };
-    private final String[] COLOR_NAMES = {
-        "RED", 
-        "GREEN", 
-        "BLUE", 
-        "YELLOW", 
-        "PURPLE"
-    };
-    public Object getCurrentGoal;//??
+    
+    private static final String RED = "RED";
+    private static final String GREEN = "GREEN";
+    private static final String BLUE = "BLUE";
+    private static final String YELLOW = "YELLOW";
+    private static final String PURPLE = "PURPLE";
+    private String[] colors;
     
     public CircleGamePanel(){
+        goalLabel = new JLabel("Placeholder");
+        dateLabel = new JLabel("Placeholder");
+        redButton = new ColorButton(RED);
+        greenButton = new ColorButton(GREEN);
+        blueButton = new ColorButton(BLUE);
+        yellowButton = new ColorButton(YELLOW);
+        purpleButton = new ColorButton(PURPLE);
+        
+        colorButtons = new ColorButton[]{
+            redButton,
+            greenButton,
+            blueButton,
+            yellowButton,
+            purpleButton
+        };
+        
+        colors = new String[]{
+            RED,
+            GREEN,
+            BLUE,
+            YELLOW,
+            PURPLE
+        };
+        
         circleGameScore = 0;
-        currentRound = 0;
+        currentRound = 1;
+        currentGoal = new String("Placeholder");
+        
+        initComponents();
+    }
+    
+    private void initComponents(){
+        setRandomGoal();
+        goalLabel.setBounds(275,20,150,50);
+        goalLabel.setFont(new Font("Impact", Font.PLAIN, 32));
+        add(goalLabel);
     }
     
     //name: getDateTime
@@ -52,7 +89,8 @@ public class CircleGamePanel extends JPanel{
     //purpose: reinitializes game's default data
     public void reset(){
         circleGameScore = 0;
-        currentRound = 0;
+        currentRound = 1;
+        setRandomGoal();
     }
     
     //name: getCurrentRound
@@ -83,13 +121,23 @@ public class CircleGamePanel extends JPanel{
     //purpose: sets the color goal randomly    
     public void setRandomGoal(){
         Random rand = new Random();
-        int randomColorName = rand.nextInt(5);
-        //randomize text
-        String buttonColorName = COLOR_NAMES[randomColorName];
-        //randomize text color
-        int randomColor = rand.nextInt(5);
-        //update color goal
-        currentGoal = COLOR_NAMES[randomColorName];
+        goalLabel.setText(colors[rand.nextInt(colors.length)]);
+        currentGoal = colors[rand.nextInt(colors.length)];
+        if(currentGoal.equals(RED)){
+            goalLabel.setForeground(Color.RED);
+        } else if(currentGoal.equals(GREEN)){
+            goalLabel.setForeground(Color.GREEN);
+        } else if(currentGoal.equals(BLUE)){
+            goalLabel.setForeground(Color.BLUE);
+        } else if(currentGoal.equals(YELLOW)){
+            goalLabel.setForeground(Color.YELLOW);
+        } else if(currentGoal.equals(PURPLE)){
+            goalLabel.setForeground(Color.MAGENTA);
+        }
+    }
+    
+    public void setGoalLabelText(String text){
+        goalLabel.setText(text);
     }
 
     //name: getCurrentGoal
@@ -101,46 +149,11 @@ public class CircleGamePanel extends JPanel{
     //name: getColorButtons
     //purpose: retrieves all buttons packaged into array 
     public ColorButton[] getColorButtons(){
-        return buttons;
+        return colorButtons;
     }
 
-    //name: getRedButton
-    //purpose: retrieves red button data
-    public ColorButton getRedButton(){
-        ColorButton b = new ColorButton();
-        b.setColor(COLOR_NAMES[0]);
-        return b;
-    }
-
-    //name: getGreenButton
-    //purpose: retrieves green button data
-    public ColorButton getGreenButton(){
-        ColorButton b = new ColorButton();
-        b.setColor(COLOR_NAMES[1]);
-        return b;  
+    public int getCircleGameScore() {
+        return circleGameScore;
     }
     
-    //name: getBlueButton
-    //purpose: retrieves blue button data
-    public ColorButton getBlueButton(){
-        ColorButton b = new ColorButton();
-        b.setColor(COLOR_NAMES[2]);
-        return b;
-    }
-
-    //name: getYellowButton
-    //purpose: retrieves yellow button data
-    public ColorButton getYellowButton(){
-        ColorButton b = new ColorButton();
-        b.setColor(COLOR_NAMES[3]);
-        return b; 
-    }
-
-    //name: getPurpleButton
-    //purpose: retrieves purple button data
-    public ColorButton getPurpleButton(){
-        ColorButton b = new ColorButton();
-        b.setColor(COLOR_NAMES[4]);
-        return b;
-    }
 }

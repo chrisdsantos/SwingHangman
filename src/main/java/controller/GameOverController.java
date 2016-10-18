@@ -15,16 +15,16 @@ package main.java.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.Timer;
 import javax.swing.event.AncestorEvent;
 import javax.swing.event.AncestorListener;
 import main.java.SwingProject;
 import main.java.model.GameOverModel;
+import main.java.view.CircleGamePanel;
 import main.java.view.GameOverPanel;
-import main.java.view.GamePanel;
 
 public class GameOverController {
     private GameController gameControllerReference;
+    private CircleGameController circleGameControllerReference;
     private GameOverPanel panel;
     private GameOverModel model;
     private MainFrameController rootController;
@@ -50,6 +50,7 @@ public class GameOverController {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 gameControllerReference.resetGame();
+                circleGameControllerReference.resetGame();
                 rootController.changeVisibleCard(SwingProject.FUNCTION_KEY);
             }
         });
@@ -58,6 +59,7 @@ public class GameOverController {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 gameControllerReference.resetGame();
+                circleGameControllerReference.resetGame();
                 rootController.changeVisibleCard(SwingProject.GAME_KEY);
             }
         });
@@ -65,7 +67,8 @@ public class GameOverController {
         panel.addAncestorListener(new AncestorListener(){
             @Override
             public void ancestorAdded(AncestorEvent event) {
-                panel.getScoreLabel().setText("Final Score: " + gameControllerReference.getModel().getScore());
+                panel.getScoreLabel().setText("Final Score: " + (gameControllerReference.getModel().getScore() +
+                        ((CircleGamePanel)circleGameControllerReference.getPanel()).getCircleGameScore()));
             }
 
             @Override
@@ -97,6 +100,9 @@ public class GameOverController {
 
     public void setGameControllerReference(GameController gameControllerReference) {
         this.gameControllerReference = gameControllerReference;
+    }
+    public void setCircleGameControllerReference(CircleGameController circleGameControllerReference) {
+        this.circleGameControllerReference = circleGameControllerReference;
     }
     
 }

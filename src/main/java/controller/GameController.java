@@ -69,7 +69,7 @@ public class GameController{
                     Timer timer = new Timer(1500, new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            rootController.changeVisibleCard(SwingProject.GAME_OVER_KEY);
+                            rootController.changeVisibleCard(SwingProject.CIRCLE_GAME_KEY);
                         }
                     });
                     timer.setRepeats(false);
@@ -109,7 +109,7 @@ public class GameController{
             @Override
             public void actionPerformed(ActionEvent ae) {
                 model.setScore(0);
-                rootController.changeVisibleCard(SwingProject.GAME_OVER_KEY);
+                rootController.changeVisibleCard(SwingProject.CIRCLE_GAME_KEY);
             }
             
         });

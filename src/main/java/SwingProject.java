@@ -119,13 +119,14 @@ public class SwingProject {
         mainFrameController.addPanel(splashController.getPanel(),SPLASH_KEY);
         mainFrameController.addPanel(functionController.getPanel(),FUNCTION_KEY);
         mainFrameController.addPanel(gameController.getPanel(),GAME_KEY);
-        mainFrameController.addPanel(circleGameController.getPanel(), GAME_KEY);
+        mainFrameController.addPanel(circleGameController.getPanel(),CIRCLE_GAME_KEY);
         mainFrameController.addPanel(creditsController.getPanel(),CREDITS_KEY);
         mainFrameController.addPanel(gameoverController.getPanel(),GAME_OVER_KEY);
         mainFrameController.addPanel(highScoreController.getPanel(),HIGH_SCORE_KEY);
         
         functionController.setGameControllerReference(gameController);
         gameoverController.setGameControllerReference(gameController);
+        gameoverController.setCircleGameControllerReference(circleGameController);
     }
     
     //method: setupAndStart
@@ -134,7 +135,7 @@ public class SwingProject {
     private void setupAndStart(){
         javax.swing.SwingUtilities.invokeLater(() -> {
             setup();
-            mainFrameController.changeVisibleCard(SPLASH_KEY);
+            mainFrameController.changeVisibleCard(FUNCTION_KEY);
             mainFrameController.getFrame().setVisible(true);
         });
     }

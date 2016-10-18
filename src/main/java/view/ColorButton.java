@@ -5,6 +5,11 @@
  */
 package main.java.view;
 
+import java.awt.Image;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 /**
@@ -13,9 +18,36 @@ import javax.swing.JButton;
  */
 public class ColorButton extends JButton{
     private String color;
+    ImageIcon imageUp;
+    ImageIcon imageDown;
     
-    public ColorButton(){
-        color = "NOT SET";
+    public ColorButton(String color){
+        this.color = color;
+        imageUp = new ImageIcon(getClass().getClassLoader().getResource("images/"+ color + "_UP.png"));
+        imageDown = new ImageIcon(getClass().getClassLoader().getResource("images/"+ color + "_DOWN.png"));
+        this.setIcon(imageUp);
+        this.setBorder(BorderFactory.createEmptyBorder());
+        this.setContentAreaFilled(false);
+        setFocusPainted(false);
+        
+        this.addMouseListener(new MouseAdapter()
+        {
+            public void mouseEntered(MouseEvent evt)
+            {
+                setIcon(imageDown);
+            }
+            public void mouseExited(MouseEvent evt)
+            {
+                setIcon(imageUp);
+            }
+            public void mousePressed(MouseEvent evt)
+            {
+            }
+            public void mouseReleased(MouseEvent evt)
+            {
+            }
+        });
+        
     }
     
     public String getColor(){
