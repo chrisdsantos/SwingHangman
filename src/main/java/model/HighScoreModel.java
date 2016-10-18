@@ -83,4 +83,6 @@ public class HighScoreModel implements PanelModel {
     public String getBackButtonText() {
         return this.backButtonText;
     }
+    public static final String highScoresFileName = "highscores.txt";
+    public static final int numScore = 5;
 }
